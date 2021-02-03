@@ -15,7 +15,7 @@ class BaseController
 
     public function render(array $get, array $post)
     {
-        
+
        require 'View/coach_profile.php';
     }
 
@@ -29,15 +29,11 @@ class BaseController
    
     //TODO: watch reminder
 
-    // echo "<h2>NEXTWATCH</h2><pre>";
-    // var_dump($nextWatch);
-    // echo "</pre>";
-
-    public function getWatchSchedule()
+  /*  public function getWatchSchedule($databaseManager)
     {
         $sql = "SELECT watch.id, watch.name, watch.date, students.first_name FROM watch, students WHERE students.id=watch.student_id;";
 
-        $databaseUser = $this->databaseManager->database->prepare($sql);
+        $databaseUser = $databaseManager->database->prepare($sql);
         $databaseUser->execute();
         $result = $databaseUser->fetchAll();
 
@@ -88,22 +84,5 @@ class BaseController
         $databaseUser->execute([$classNumber]);
         $result = $databaseUser->fetchALL();
         return $result;
- 
-    }
-
-    public function upComingWatch(){
-
-        $sql = "SELECT watch.id, watch.name, watch.date, students.first_name FROM watch, students WHERE students.id=watch.student_id;";
-
-        $databaseUser = $this->databaseManager->database->prepare($sql);
-        $databaseUser->execute();
-        $this->result = $databaseUser->fetch();
-        return $result;
-        //var_dump($result); 
-       // $this->set(nextWatch, $result);
-      
-    }
-
-
-
+    }*/
 }

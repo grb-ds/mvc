@@ -3,9 +3,9 @@ require 'includes/header_watch.php';
 //require 'includes/nav_coach.php';
 require_once 'handles/userHandle.php';
 require_once 'handles/coacherHandle.php';
-echo "<h2>NEXTWATCH</h2><pre>";
-var_dump($nextWatch);
-echo "</pre>";
+
+
+
 ?>
 
 
@@ -39,11 +39,10 @@ echo "</pre>";
         </div>
         <div class="repo">
             <h3>Upcoming Watch</h3>
-            <p><?php 
-            echo $nextWatch["date"];
+            <p><?php echo $this->nextWatch["date"];
 
-                ?> by <?php echo $nextWatch["first_name"];?> </p>
-            <H4> <?php echo $nextWatch["name"]?></H4>
+                ?> by <?php echo $this->nextWatch["first_name"];?> </p>
+            <H4> <?php echo $this->nextWatch["name"]?></H4>
 
         </div>
 
@@ -59,7 +58,7 @@ echo "</pre>";
                     <thead>Vervou</thead>
                     <tr>
                         <?php 
-                foreach($class1 as $classmate){?>
+                foreach($this->class1 as $classmate){?>
 
                         <td><?php echo($classmate["first_name"]);?> </td>
                         <?php }?></td>
@@ -71,7 +70,7 @@ echo "</pre>";
                     <thead>KooKu</thead>
                     <tr>
                         <?php 
-                foreach($class2 as $classmate2){?>
+                foreach($this->class2 as $classmate2){?>
 
                         <td><?php echo($classmate2["first_name"]);?> </td>
                         <?php }?></td>
@@ -104,8 +103,8 @@ window.addEventListener('DOMContentLoaded', () => {
         //selectHelper:true,
        
         //cannot use PHP tag inside javascript codes, can only use a file return the values
-        events: '../Controller/WatchController.php',
-        displayEventTime: false,
+        events: 'Controller/WatchController.php',
+                displayEventTime: false,
         eventColor: '#d889a7',
         eventTextColor: 'white',
     });
