@@ -52,16 +52,31 @@ $databaseManager->connect();
 
 
 $result = null;
+$nextWatch = "";
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['login'])){
         $userController = new UserController($databaseManager);
         $userController->render($_GET, $_POST);
-      /*  $baseController = new BaseController($databaseManager);
-        $nextWatch = $baseController->upComingWatch();
-        $class1 = $nextWatch->getClassmates(1);
-        $class2 = $nextWatch->getClassmates(2);*/
+
+        
+        $baseController = new BaseController($databaseManager);
+        $baseController->render($_GET, $_POST);
+        
+
+        
+    //   
+
+    //    echo "<h2>NEXTWATCH</h2><pre>";
+    //     var_dump($nextWatch);
+    //     echo "</pre>";
+        //echo $nextWatch["date"];
+
+        // $class1 = $baseController->getClassmates(1);
+        // $class2 = $baseController->getClassmates(2);
+        
+       
 
     }
 }

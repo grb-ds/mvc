@@ -4,12 +4,21 @@
 class BaseController
 {
     private $databaseManager;
+    public $result;
    
     // This class needs a database connection to function
     public function __construct(DatabaseManager $databaseManager)
     {
         $this->databaseManager = $databaseManager;
+        //echo "create basecontroller!!!!";
     }
+
+    public function render(array $get, array $post)
+    {
+        
+       require 'View/coach_profile.php';
+    }
+
 
     //TODO: select admin role
 
@@ -19,6 +28,10 @@ class BaseController
 
    
     //TODO: watch reminder
+
+    // echo "<h2>NEXTWATCH</h2><pre>";
+    // var_dump($nextWatch);
+    // echo "</pre>";
 
     public function getWatchSchedule()
     {
@@ -41,16 +54,7 @@ class BaseController
         }
         echo json_encode($data);
     }
-    public function upComingWatch(){
-
-        $sql = "SELECT watch.id, watch.name, watch.date, students.first_name FROM watch, students WHERE students.id=watch.student_id;";
-
-        $databaseUser = $this->databaseManager->database->prepare($sql);
-        $databaseUser->execute();
-        $result = $databaseUser->fetch();
-        return $result;
-    }
-
+  
 
     public function watchReminder($id)
     {
@@ -60,8 +64,8 @@ class BaseController
 
         $databaseUser = $this->databaseManager->database->prepare($sql);
         $databaseUser->execute([$id]);
-        $result = $databaseUser->fetch();
-        return $result;
+        $nextWatch = $databaseUser->fetch();
+        return $nextWatch;
     }
 
     public function getClassNumber($id){
@@ -84,5 +88,22 @@ class BaseController
         $databaseUser->execute([$classNumber]);
         $result = $databaseUser->fetchALL();
         return $result;
+ 
     }
+
+    public function upComingWatch(){
+
+        $sql = "SELECT watch.id, watch.name, watch.date, students.first_name FROM watch, students WHERE students.id=watch.student_id;";
+
+        $databaseUser = $this->databaseManager->database->prepare($sql);
+        $databaseUser->execute();
+        $this->result = $databaseUser->fetch();
+        return $result;
+        //var_dump($result); 
+       // $this->set(nextWatch, $result);
+      
+    }
+
+
+
 }

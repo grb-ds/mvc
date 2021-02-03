@@ -1,24 +1,21 @@
 <?php 
 require 'includes/header_watch.php';
-require 'includes/nav_coach.php';
-
+//require 'includes/nav_coach.php';
 require_once 'handles/userHandle.php';
 require_once 'handles/coacherHandle.php';
-
+echo "<h2>NEXTWATCH</h2><pre>";
+var_dump($nextWatch);
+echo "</pre>";
 ?>
-<div class="resize-container">
 
-</div>
+
 <div class="container-profile">
     <div class="grid-profile">
         <div class="welcome-msg">
             <h3>Welcome,
-            <?php echo $_SESSION['logginUserName'] ?>
+                <span class="welcome-name"><?php echo $_SESSION["logginUserName"]; ?>!</span><br>
+                How are you doing today?
             </h3>
-
-            <?php //TODO: to display welcome msg?>
-            Enjoy and learn! Have a fun day!!
-
         </div>
         <div class="exercise-list">
             <?php //TODO: for the shortlist of exercises?>
@@ -29,11 +26,10 @@ require_once 'handles/coacherHandle.php';
             <a href="">More info<i class="fas fa-plus"></i></a>
            <!-- <button type="submit" name="createChallenge"><a href="View/create_challenge.php">Create New Challenge</a></button>-->
             <button type="submit" name="createChallenge"><a href="index.php?page=createChallenge">Create New Challenge</a></button>
-            index.php?page=login
+            
         </div>
 
         <div class="watch">
-            <?php //TODO: replace the dummy text for the calendar?>
             <div class="container">
             <h3>Watch Schedule</h3>
             <div id="calendar"></div>
@@ -42,9 +38,9 @@ require_once 'handles/coacherHandle.php';
             
         </div>
         <div class="repo">
-            <?php //TODO: replace the dummy text for the repository link?>
             <h3>Upcoming Watch</h3>
-            <p><?php echo $nextWatch["date"];
+            <p><?php 
+            echo $nextWatch["date"];
 
                 ?> by <?php echo $nextWatch["first_name"];?> </p>
             <H4> <?php echo $nextWatch["name"]?></H4>
@@ -52,15 +48,50 @@ require_once 'handles/coacherHandle.php';
         </div>
 
         <div class="student-list">
-            <?php //TODO: to display the student list of the same class ?>
             <h3>Students</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam, sint!</p>
-            <a href="">More info<i class="fas fa-plus"></i></a>
+            <p>Curious about the juniors?</p>
+            <button class="modal-btn" onclick="document.getElementById('class-modal').style.display='block'">More
+                Info</button>
+            <div id="class-modal" class="modal">
+                <span onclick="document.getElementById('class-modal').style.display='none'" class="close"
+                    title="Close Modal">&times;</span>
+                <table>
+                    <thead>Vervou</thead>
+                    <tr>
+                        <?php 
+                foreach($class1 as $classmate){?>
+
+                        <td><?php echo($classmate["first_name"]);?> </td>
+                        <?php }?></td>
+
+                    </tr>
+                    
+                </table>
+                <table>
+                    <thead>KooKu</thead>
+                    <tr>
+                        <?php 
+                foreach($class2 as $classmate2){?>
+
+                        <td><?php echo($classmate2["first_name"]);?> </td>
+                        <?php }?></td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 </div>
 
 <script>
+var modal = document.getElementById('class-modal');
+
+// When the user clicks anywhere  of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
 window.addEventListener('DOMContentLoaded', () => {
 
     var calendar = $('#calendar').fullCalendar({
