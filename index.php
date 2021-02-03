@@ -31,15 +31,6 @@ require_once 'Modal/repository/RegisterRepository.php';
 // require_once 'Modal/repository/CoacherRepository.php';
 
 
-
-
-
-
-
-
-
-
-
 // require_once 'Controller/LoginController.php';
 
 // require_once 'Modal/DatabaseManager.php';
@@ -58,13 +49,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['login'])){
         $userController = new UserController($databaseManager);
         $userController->render($_GET, $_POST);
-      /*  $baseController = new BaseController($databaseManager);
-        $nextWatch = $baseController->upComingWatch();
-        $class1 = $nextWatch->getClassmates(1);
+        //$baseController = new BaseController($databaseManager);
+       // $nextWatch = $baseController->upComingWatch($databaseManager);
+   /*     $class1 = $nextWatch->getClassmates(1);
         $class2 = $nextWatch->getClassmates(2);*/
 
     }
 }
+
+
+
+
 
 if (isset($_GET['page']) && $_GET['page'] == 'register'){
     require_once 'Controller/RegisterController.php';

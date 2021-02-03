@@ -5,6 +5,7 @@ require 'includes/nav_coach.php';
 require_once 'handles/userHandle.php';
 require_once 'handles/coacherHandle.php';
 
+var_dump($this->nextWatch);
 ?>
 <div class="resize-container">
 
@@ -44,10 +45,10 @@ require_once 'handles/coacherHandle.php';
         <div class="repo">
             <?php //TODO: replace the dummy text for the repository link?>
             <h3>Upcoming Watch</h3>
-            <p><?php echo $nextWatch["date"];
+            <p><?php echo $this->nextWatch["date"];
 
-                ?> by <?php echo $nextWatch["first_name"];?> </p>
-            <H4> <?php echo $nextWatch["name"]?></H4>
+                ?> by <?php echo $this->nextWatch["first_name"];?> </p>
+            <H4> <?php echo $this->nextWatch["name"]?></H4>
 
         </div>
 

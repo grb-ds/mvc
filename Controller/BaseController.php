@@ -20,11 +20,11 @@ class BaseController
    
     //TODO: watch reminder
 
-    public function getWatchSchedule()
+  /*  public function getWatchSchedule($databaseManager)
     {
         $sql = "SELECT watch.id, watch.name, watch.date, students.first_name FROM watch, students WHERE students.id=watch.student_id;";
 
-        $databaseUser = $this->databaseManager->database->prepare($sql);
+        $databaseUser = $databaseManager->database->prepare($sql);
         $databaseUser->execute();
         $result = $databaseUser->fetchAll();
 
@@ -84,5 +84,5 @@ class BaseController
         $databaseUser->execute([$classNumber]);
         $result = $databaseUser->fetchALL();
         return $result;
-    }
+    }*/
 }
