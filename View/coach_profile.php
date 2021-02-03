@@ -41,11 +41,14 @@ require_once 'handles/coacherHandle.php';
             </div>
             
         </div>
-
         <div class="repo">
             <?php //TODO: replace the dummy text for the repository link?>
-            <h3>Repository</h3>
-            <a href="">More info<i class="fas fa-plus"></i></a>
+            <h3>Upcoming Watch</h3>
+            <p><?php echo $nextWatch["date"];
+
+                ?> by <?php echo $nextWatch["first_name"];?> </p>
+            <H4> <?php echo $nextWatch["name"]?></H4>
+
         </div>
 
         <div class="student-list">

@@ -26,6 +26,7 @@ class ChallengeRepository
         $sqlStatement->bindParam(':i-class_id ', $classId, PDO::PARAM_INT);
 
          $sqlStatement->execute();
+        $this->databaseManager->database->commit();
 
         $result = $sqlStatement->fetch(PDO::FETCH_ASSOC);
 
@@ -34,10 +35,10 @@ class ChallengeRepository
         if ($result) {
           //  $this->mapper($statementResult);
             //return $this->challenge;
-            return $result;
+           // return $result;
         } else {
             $result = false;
-            return $result;
+           // return $result;
         }
 
     }

@@ -25,34 +25,48 @@ class ChallengeController {
         $this->message = "";
     }
 
-    public function renderCreateView()
-    {
+    public function render($get, $post) {
+
+        if (isset($post["addChallenge"])) {
+            var_dump($post["addChallenge"]);
+       /*     $dateStartS = date_create($_POST['yearStart']."-".$_POST['monthStart']."-".$_POST['dayStart']);
+            $dateEndS = date_create($_POST['yearEnd']."-".$_POST['monthEnd']."-".$_POST['dayEnd']);
+            date_timestamp_set($dateStartS);
+            date_timestamp_set($dateEndS);
+            $dateStart = date_format($dateStartS, 'Y-m-d H:i:s');
+            $dateEnd = date_format($dateEndS, 'Y-m-d H:i:s');*/
+
+            $challenge =  $this->create($_POST['name'],
+                            $_POST['description'],
+                            $_POST['dayStart'],
+                            $_POST['monthStart'],
+                            $_POST['yearStart'],
+                            $_POST['dayEnd'],
+                            $_POST['monthEnd'],
+                            $_POST['yearEnd'],
+                            $_POST['url'],
+                            $_POST['type'],
+                            (int)$_POST['classes']);
+
+           if ($challenge) {
+               var_dump($challenge);
+           }
+        }
+
         require "View/create_challenge.php";
     }
 
-    public function render()
+
+    public function create($name, $description, $dayOpen, $monthOpen, $yearOpen, $dayEnd, $monthEnd, $yearEnd, $url, $type, $classId)
     {
-        //this is just example code, you can remove the line below
+        $dateStartS = date_create($yearOpen."-".$monthOpen."-".$dayOpen);
+        $dateEndS = date_create($yearEnd."-".$monthEnd."-".$dayEnd);
+        date_timestamp_set($dateStartS);
+        date_timestamp_set($dateEndS);
+        $dateStart = date_format($dateStartS, 'Y-m-d H:i:s');
+        $dateEnd = date_format($dateEndS, 'Y-m-d H:i:s');
 
-        $user = $this->login($_GET['email'], $_POST['password']);
-
-        if ($user) {
-            $_SESSION["logginUserId"] = $user->getId();
-            $_SESSION["logginUserName"] = $user->getUsername();
-            // $_SESSION['user'] = serialize((array) $user);
-        }
-
-        //you should not echo anything inside your controller - only assign vars here
-        // then the view will actually display them.
-
-        //load the view
-        $this->renderByUserRole($user);
-        exit();
-    }
-
-    public function login($username, $password)
-    {
-        return $this->userRepository->find($username,$password);
+        return $this->challengeRepository->create($name, $description, $dateStart, $dateEnd, $url, $type, $classId);
     }
 
     public function renderByUserRole($user)

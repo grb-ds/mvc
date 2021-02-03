@@ -26,7 +26,7 @@
         <br><br>
 
     </form>
-    <button name="registerNow"><a href="View/register_profile.php">Register new account!</a></button>
+    <button name="registerNow"><a href="index.php?page=register">Register new account!</a></button>
 
 
 

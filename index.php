@@ -53,21 +53,32 @@ $databaseManager->connect();
 
 $result = null;
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['login'])){
         $userController = new UserController($databaseManager);
         $userController->render($_GET, $_POST);
+      /*  $baseController = new BaseController($databaseManager);
+        $nextWatch = $baseController->upComingWatch();
+        $class1 = $nextWatch->getClassmates(1);
+        $class2 = $nextWatch->getClassmates(2);*/
+
     }
 }
 
-if (isset($_GET['page']) && $_GET['page'] === 'register'){
-    $registerController = new RegisterController($databaseManager);
-    $registerController->render($_GET, $_POST);
-    }
+if (isset($_GET['page']) && $_GET['page'] == 'register'){
+    require_once 'Controller/RegisterController.php';
+    require_once 'Modal/repository/RegisterRepository.php';
+    echo "TEST";
+
+    $controller = new RegisterController($databaseManager);
+    $controller->render($_GET, $_POST);
+}
 
 if (isset($_GET["page"]) && $_GET["page"] === "createChallenge" ) {
-    $controllerChallenge = new ChallengeController($databaseManager);
-    $controllerChallenge->renderCreateView();
+    $challengeController = new ChallengeController($databaseManager);
+    // $challengeController->renderCreateView($_GET, $_POST);
+    $challengeController->render($_GET, $_POST);
 }
 
 

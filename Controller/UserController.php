@@ -35,6 +35,7 @@ class UserController {
         if ($user) {
             $_SESSION["logginUserId"] = $user->getId();
             $_SESSION["logginUserName"] = $user->getUsername();
+            $_SESSION["user_role"] = $user->getRoleId();
            // $_SESSION['user'] = serialize((array) $user);
         }
 
@@ -58,12 +59,14 @@ class UserController {
              switch ($user->getRoleId()) {
                 case 1:
                     require "View/coach_profile.php";
+                    require 'View/includes/nav_coach.php';
 
                   //  header("location: ./View/coach_profile.php");
 
                     break;
                 case 2:
                    require "View/student_profile.php";
+                    require 'View/includes/nav_student.php';
                    break;
             }
             $this->sucessMessage();

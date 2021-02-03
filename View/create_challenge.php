@@ -5,10 +5,10 @@
 require 'includes/header_watch.php';
 
 require 'includes/nav_coach.php';
+
+require_once './View/handles/coacherHandle.php';
+require_once './config.php';
 ?>
-
-
-
 
 <div class="resize-container">
 
@@ -27,7 +27,8 @@ require 'includes/nav_coach.php';
         <div class="exercise-list challenge-add">
          <!--   <div class="container">-->
 
-                <form name="add" method="post" action="index.php">
+                <!--<form name="add" method="post" action="./View/handles/coacherHandle.php">-->
+            <form name="add" method="post" action="index.php">
                     <div class="modal-header">
                         <h4 class="modal-title">Add Challenge</h4>
                     </div>
@@ -37,29 +38,74 @@ require 'includes/nav_coach.php';
                             <input type="text" class="form-control" required name="name" value=""><!--<= $cardRepository->getCard()->getName() ?>">-->
                         </div>
                         <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" required name="description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Start date</label>
+                             <div class="input-group">
+                                <span class="input-group-addon">d &nbsp; </span>
+                                <select id="dayStart" name="dayStart" class="form-control">
+                                    <?php for ($i = 1; $i <= 31; $i++) : ?>
+                                        <option value="<?php echo $i ?>"><?php echo $i ?></option>
+                                    <?php endfor; ?>
+                                </select>
+                                <span class="input-group-addon">&nbsp; m &nbsp; </span>
+                                <select id="monthStart" name="monthStart" class="form-control">
+                                    <?php foreach ($months as $key => $value): ?>
+                                        <option value="<?php echo $value ?>"><?php echo $key ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <span class="input-group-addon">&nbsp; y &nbsp;</span>
+                                <select id="yearStart" name="yearStart" class="form-control">
+                                    <?php foreach ($years as $value): ?>
+                                        <option value="<?php echo $value ?>"><?php echo $value ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                        </div>
+                        </div>
+                        <div class="form-group">
+                            <label>End date</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">d &nbsp; </span>
+                                <select id="dayEnd" name="dayEnd" class="form-control">
+                                    <?php for ($i = 1; $i <= 31; $i++) : ?>
+                                        <option value="<?php echo $i ?>"><?php echo $i ?></option>
+                                    <?php endfor; ?>
+                                </select>
+                                <span class="input-group-addon">&nbsp; m &nbsp; </span>
+                                <select id="monthEnd" name="monthEnd" class="form-control">
+                                    <?php foreach ($months as $key => $value): ?>
+                                        <option value="<?php echo $value ?>"><?php echo $key ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <span class="input-group-addon">&nbsp; y &nbsp;</span>
+                                <select id="yearEnd" name="yearEnd" class="form-control">
+                                    <?php foreach ($years as $value): ?>
+                                        <option value="<?php echo $value ?>"><?php echo $value ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label>Type</label>
                             <input type="text" class="form-control" required name="type" value="">
                         </div>
                         <div class="form-group">
-                            <label>HP</label>
-                            <input type="text" class="form-control" required name="hp" value="">
+                            <label>Url</label>
+                            <input type="text" class="form-control" required name="url" value="">
                         </div>
+
                         <div class="form-group">
-                            <label>Stage</label>
-                            <input type="text" class="form-control" required name="stage" value="">
-                        </div>
-                        <div class="form-group">
-                            <label>Info</label>
-                            <textarea class="form-control" required name="info"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Attack</label>
-                            <input type="text" class="form-control" required name="attack" value="">
+                            <label>Class</label>
+                            <select id="classes" name="classes" class="form-control">
+                                <option value="2">VEROU</option>
+                            </select>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <input type="submit" class="btn btn-success" value="Add" name="add">
-                        <button type="submit" class="btn btn-success" name="edit" value="<?= $cardRepository->getCard()->getId() ?>">Edit</button>
+                        <input type="submit" class="btn btn-secondary" value="Add" name="addChallenge">
+                      <!--  <button type="submit" class="btn btn-success" name="edit" value="<?= $cardRepository->getCard()->getId() ?>">Edit</button>-->
                         <!-- <input type="submit" class="btn btn-success" value="Edit" name="edit">-->
                     </div>
                 </form>

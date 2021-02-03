@@ -1,35 +1,3 @@
-<?php 
-
-// require_once '../setup.php';
-
-
-// if(isset($_POST["register"])){
-
-//     $databaseManager->connect();
-//     $newUser = new RegisterController($databaseManager);
-
-//     $userName = $_POST["userName"];
-//     $email=$_POST["email"];
-//     $password=$_POST["password"];
-//     $repeatPassword=$_POST["repeatPassword"];
-//     $userRole = (int) $_POST['userRole'];
-
-//     $_SESSION["email"] = $_POST["email"];
-//     $newUser->register($userName, $email, $password, $repeatPassword, $userRole);
-
-// }
-
-echo "<h2>POST</h2>";
-var_dump($_POST);
-
-echo "<h2>GET</h2>";
-var_dump($_GET);
-// echo "<h2>SESSION</h2>";
-// var_dump($_SESSION);
-
-
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -61,11 +29,11 @@ var_dump($_GET);
         </select>
         <br><br>
         <hr>
-
         <button type="submit" name="register" value="register" id="register">Register now!</button>
     </form>
 
-    <?php if(isset($controller)) { $controller->errorMessage(); } ?>
-
+    <?php if(!empty($error)) : ?>
+        <h3 style="color: red; font-size: 16px;"><?= errorMessage($error) ?></h3>
+    <?php  endif; ?>
 </body>
 </html>
