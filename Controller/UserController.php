@@ -23,6 +23,8 @@ class UserController {
     public $nextWatch;
     public $class1;
     public $class2;
+    public $reminder;
+    public $classmates;
 
     /**
      * UserController constructor.
@@ -50,6 +52,14 @@ class UserController {
             $this->nextWatch = $this->upComingWatch();
             $this->class1 = $this->getClassmates(1);
             $this->class2 = $this->getClassmates(2);
+
+         
+            $id = $_SESSION["logginUserId"];
+          
+            $this->reminder=$this->watchReminder($id);
+            $classNumber=$this->getClassNumber($id);
+            $this->classmates = $this->getClassmates($classNumber);
+
 
         }
 

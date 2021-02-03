@@ -1,14 +1,13 @@
 <?php 
 
 require_once 'includes/header_watch.php';
-require_once 'includes/nav_student.php';
 ?>
 
 <div class="container-profile">
     <div class="grid-profile">
         <div class="welcome-msg">
             <h3>Welcome,
-                <span class="welcome-name"><?php echo $_GET["user"]; ?>!</span><br>
+                <span class="welcome-name"><?php echo $_SESSION["logginUserName"]; ?>!</span><br>
                 How are you doing today?
             </h3>
         </div>
@@ -31,9 +30,9 @@ require_once 'includes/nav_student.php';
         </div>
 
         <div class="repo">
-            <?php //TODO: replace the dummy text for the repository link?>
-            <h3>Repository</h3>
-            <a href="">More info<i class="fas fa-plus"></i></a>
+            <h3>Your Next Watch</h3>
+            <p><?php echo $this->reminder["date"];?></p>
+            <a href="mailto:<?php echo $this->reminder["email"]; ?>">Want an email reminder to yourself?</a>
         </div>
 
         <div class="student-list">
@@ -45,23 +44,20 @@ require_once 'includes/nav_student.php';
             <div id="class-modal" class="modal">
                 <span onclick="document.getElementById('class-modal').style.display='none'" class="close"
                     title="Close Modal">&times;</span>
-
-                    <!-- TODO: to display student list of the class -->
-
-                
-
+                <table>
+                    <tr> <?php foreach($this->classmates as $classmate){?>
+                        <td><?php echo($classmate["first_name"]);?> </td>
+                            <?php }?> 
+                    </tr>
+                </table>
             </div>
-
-
         </div>
     </div>
 </div>
 
 
 
-
 <script>
-// Get the modal
 var modal = document.getElementById('class-modal');
 
 // When the user clicks anywhere  of the modal, close it
