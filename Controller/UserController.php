@@ -59,8 +59,6 @@ class UserController {
             $this->reminder=$this->watchReminder($id);
             $classNumber=$this->getClassNumber($id);
             $this->classmates = $this->getClassmates($classNumber);
-
-
         }
 
         //you should not echo anything inside your controller - only assign vars here
@@ -156,7 +154,6 @@ class UserController {
         $result = $databaseUser->fetch();
         return $result;
     }
-
 
     public function watchReminder($id)
     {
