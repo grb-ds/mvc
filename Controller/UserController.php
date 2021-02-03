@@ -49,16 +49,10 @@ class UserController {
             $_SESSION["user_role"] = $user->getRoleId();
            // $_SESSION['user'] = serialize((array) $user);
 
-            $this->nextWatch = $this->upComingWatch();
-            $this->class1 = $this->getClassmates(1);
-            $this->class2 = $this->getClassmates(2);
+            
 
          
-            $id = $_SESSION["logginUserId"];
-          
-            $this->reminder=$this->watchReminder($id);
-            $classNumber=$this->getClassNumber($id);
-            $this->classmates = $this->getClassmates($classNumber);
+            
         }
 
         //you should not echo anything inside your controller - only assign vars here
@@ -80,7 +74,10 @@ class UserController {
         {
              switch ($user->getRoleId()) {
                 case 1:
-                    //require 'WatchController.php';
+
+                    $this->nextWatch = $this->upComingWatch();
+                    $this->class1 = $this->getClassmates(1);
+                    $this->class2 = $this->getClassmates(2);
 
                     require "View/coach_profile.php";
                     require 'View/includes/nav_coach.php';
@@ -90,6 +87,13 @@ class UserController {
 
                     break;
                 case 2:
+
+                    $id = $_SESSION["logginUserId"];
+
+                    $this->reminder=$this->watchReminder($id);
+                    $classNumber=$this->getClassNumber($id);
+                    $this->classmates = $this->getClassmates($classNumber);
+
                    require "View/student_profile.php";
                     require 'View/includes/nav_student.php';
                    break;
@@ -117,7 +121,7 @@ class UserController {
         return $this->message;
     }
 
-    
+    //TODO: getWatchSchedule is not working
 
      public function getWatchSchedule()
     {

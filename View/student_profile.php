@@ -71,18 +71,18 @@ window.addEventListener('DOMContentLoaded', () => {
 
     var calendar = $('#calendar').fullCalendar({
 
-        //fixedWeekCount: false,
-        editable: false,
-        // height: 400 ,
-        contentHeight: 350,
-        selectable: true,
-        //selectHelper:true,
+    //fixedWeekCount: false,
+    editable: false,
+    // height: 400 ,
+    contentHeight: 350,
+    selectable: true,
+    //selectHelper:true,
 
-        //cannot use PHP tag inside javascript codes, can only use a file return the values
-        events: '../Controller/WatchController.php',
-        displayEventTime: false,
-        eventColor: '#d889a7',
-        eventTextColor: 'white',
+    //cannot use PHP tag inside javascript codes, can only use a file return the values
+    events: '../Controller/WatchController.php',
+    displayEventTime: false,
+    eventColor: '#d889a7',
+    eventTextColor: 'white',
     });
 });
 </script>
