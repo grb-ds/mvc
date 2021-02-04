@@ -48,7 +48,7 @@ $nextWatch = "";
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['login'])){
+    if (isset($_POST['login']) && !empty($_POST['email']) && !empty($_POST['password'])){
         $userController = new UserController($databaseManager);
        
         $userController->render($_GET, $_POST);
