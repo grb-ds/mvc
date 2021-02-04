@@ -37,6 +37,11 @@ button, input{
   border: none;
   outline: none;
 }
+input:focus, textarea:focus, select:focus{
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
 
 // sign in page //
 .signin-container {
@@ -173,8 +178,8 @@ nav.login {
     color: $dark-grey;
     font-size: 1.3rem;
   }
-  a i:hover {
-    color: $tiffany;
+  .fas:hover{
+    color: $yellow;
   }
   
  
@@ -184,6 +189,7 @@ button#nav-class, button#nav-exercise, button#nav-watch {
   outline: none;
   background-color: transparent;
 }
+
 
 
 
@@ -281,7 +287,7 @@ button#nav-class, button#nav-exercise, button#nav-watch {
   border-radius: 15px;
   margin: 1rem;
   padding: 1rem;
-  
+  overflow: auto;
 }
 .watch-display{
   margin:  .8rem 0;
@@ -398,19 +404,19 @@ button#nav-class, button#nav-exercise, button#nav-watch {
   border-radius: 13px;
   overflow-y: auto;
   height: 80vh;
+  padding: 1rem 1.5rem;
   input, textarea, select{
     background-color: transparent;
   }
-  input:focus, textarea:focus, select:focus{
-    background-color: transparent;
-    outline: none;
-    border: none;
-  }
+  
+  
+}
+textarea.form-control:focus, input.form-control:focus{
+  background-color: transparent;
 }
 
 .challenge-add::-webkit-scrollbar {
   width: .4em;
-  //height: 10px;
 }
 
 .challenge-add::-webkit-scrollbar-track {
@@ -428,11 +434,15 @@ button#nav-class, button#nav-exercise, button#nav-watch {
   color: $yellow;
   text-shadow: .5px .5px $grey;
 }
-.btn-secondary {
+input.btn.btn-secondary {
   color: $dark-grey;
   background-color: $yellow;
   border-color: $yellow;
   padding: 0.5rem 2rem;
+}
+input.btn.btn-secondary:hover{
+  background-color:$dark-grey;
+  color: $yellow;
 }
 
 

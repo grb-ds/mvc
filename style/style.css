@@ -32,6 +32,12 @@ button, input {
   outline: none;
 }
 
+input:focus, textarea:focus, select:focus {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
 .signin-container {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.2)), to(rgba(255, 255, 255, 0.4))), url(../style/pink.jpg);
   background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.4)), url(../style/pink.jpg);
@@ -189,8 +195,8 @@ nav.login a:hover, nav.login i:hover {
   font-size: 1.3rem;
 }
 
-.vertical-nav a i:hover {
-  color: #c6dddd;
+.vertical-nav .fas:hover {
+  color: #fbe487;
 }
 
 button#nav-class, button#nav-exercise, button#nav-watch {
@@ -323,6 +329,7 @@ button#nav-class, button#nav-exercise, button#nav-watch {
   border-radius: 15px;
   margin: 1rem;
   padding: 1rem;
+  overflow: auto;
 }
 
 .watch-display {
@@ -479,16 +486,15 @@ button.modal-btn:focus {
   border-radius: 13px;
   overflow-y: auto;
   height: 80vh;
+  padding: 1rem 1.5rem;
 }
 
 .challenge-add input, .challenge-add textarea, .challenge-add select {
   background-color: transparent;
 }
 
-.challenge-add input:focus, .challenge-add textarea:focus, .challenge-add select:focus {
+textarea.form-control:focus, input.form-control:focus {
   background-color: transparent;
-  outline: none;
-  border: none;
 }
 
 .challenge-add::-webkit-scrollbar {
@@ -513,11 +519,16 @@ button.modal-btn:focus {
   text-shadow: 0.5px 0.5px #c4c3c4;
 }
 
-.btn-secondary {
+input.btn.btn-secondary {
   color: #878c91;
   background-color: #fbe487;
   border-color: #fbe487;
   padding: 0.5rem 2rem;
+}
+
+input.btn.btn-secondary:hover {
+  background-color: #878c91;
+  color: #fbe487;
 }
 
 .circle {
