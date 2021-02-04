@@ -34,13 +34,15 @@
             <br><br>
             <hr>
             <button type="submit" name="register" value="register" id="register-db">Register Now!</button>
+            <br><br>
+            <?php if(!empty($error)) : ?>
+                <h3 style="color: red; font-size: 16px;"><?= errorMessage($error) ?></h3>
+            <?php endif; ?>
         </form>
     </div>
 </div>
 
-<?php if(!empty($error)) : ?>
-<h3 style="color: red; font-size: 16px;"><?= errorMessage($error) ?></h3>
-<?php  endif; ?>
+
 </body>
 
 </html>
