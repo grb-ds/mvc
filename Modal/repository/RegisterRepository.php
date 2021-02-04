@@ -2,7 +2,6 @@
 
 function register($databaseManager)
 {
-    //TODO: Change GET var into a seperate var
     $_GET['error'] = null;
     $userName = $_POST["userName"];
     $email=$_POST["email"];
@@ -34,8 +33,6 @@ function register($databaseManager)
         $_GET['error'] = "Uid-already-exists";
         return $_GET['error'];
     }
-
-    // header("location: index.php?page={$_GET['page']}&error={$_GET['error']}");
 
     createUser($databaseManager, $userName, $email, $password, $userRole);
     return $_GET['error'];
@@ -117,7 +114,6 @@ function userExists($databaseManager, $userName, $email)
 function createUser($databaseManager, $userName, $email, $password, $userRole)
 {
     $sql = "INSERT INTO user (username, email, password, role_id) VALUES (:username, :email, :password, :role_id)";
-    
 
     $sqlStatement = $databaseManager->database->prepare($sql);
 
@@ -133,15 +129,7 @@ function createUser($databaseManager, $userName, $email, $password, $userRole)
     $sqlStatement->bindParam(':password', $hashedpwd, PDO::PARAM_STR, 255);
     $sqlStatement->bindParam(':role_id', $userRole, PDO::PARAM_INT);
 
-    // echo "<pre>";
-    // var_dump($sqlStatement);
-    // echo "</pre>";
-
     $test = $sqlStatement->execute();
-
-    // echo "<pre>";
-    // var_dump($test);
-    // echo "</pre>";
 
     require "index.php?page=login";
     $sqlStatement = null;
@@ -154,7 +142,6 @@ function errorMessage($error)
         switch ($error) {
 
             case 'Empty-fields':
-                //TODO: CLEAN This up jeez
                 $errorMessage = "FILL IN ALL FIELDS!";
 
                 break;

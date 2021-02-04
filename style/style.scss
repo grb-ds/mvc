@@ -26,9 +26,7 @@ input:-internal-autofill-selected {
 
   background-color: transparent;
 }
-input{
-  //overflow: none;
-}
+
 button{
   border: none;
   outline: none;
@@ -49,6 +47,23 @@ button{
     color: $dark-grey;
   }
   a i:hover {
+    color: $tiffany;
+  }
+}
+.login {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  padding: 1rem 3rem;
+  font-size: 1.5rem;
+  i {
+    color: white;
+  }
+  a{
+    color: white;
+    font-size: 1rem;
+  }
+  a:hover, i:hover {
     color: $tiffany;
   }
 }
@@ -106,8 +121,6 @@ button#nav-exercise i{
 i{
   background-color: transparent;
 }
-
-
 
 // student profile and coach profile css
 .container-profile {
@@ -313,17 +326,15 @@ div#calendar {
     ),
     url(../style/wall.jfif);
   background-size: cover;
-  // background-position: top;
   height: 100vh;
 }
 
 .signin-form {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
   border-radius: 13px;
   width: 70%;
   height: 80vh;
   color: $dark-grey;
-  // text-align: center;
   position: absolute;
   top: 10%;
   left: 15%;
@@ -347,7 +358,6 @@ div#calendar {
   input {
     padding: 1rem 1rem 0.3rem 1rem;
     width: 70%;
-   
     background-color: transparent;
     border-bottom: 2px solid $turquoise;
     font-family: "Poppins", sans-serif;
@@ -357,6 +367,19 @@ div#calendar {
   input:focus {
     background-color: $tiffany;
   }
+  select#userRole{
+    background: $tiffany;
+    padding: .5rem 1rem;
+    border: 1px solid $turquoise;
+    font-family: "Poppins", sans-serif;
+    color: $turquoise;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  select#userRole:focus{
+    outline:none;
+  }
+  
   #login {
     font-family: "Poppins", sans-serif;
     border-radius: 13px;
@@ -385,7 +408,19 @@ div#calendar {
   
   }
  
-  
+ 
+}
+button#register-db{
+  font-family: "Poppins", sans-serif;
+  border-radius: 13px;
+  padding: 0.8rem 2rem;
+    position: absolute;
+  bottom: 5%;
+  right: 5%;
+  text-transform: uppercase;
+  background-color: $yellow;
+  color: $dark-grey;
+  font-size: 1rem;
 }
 a span#register-new-account{
   color: $turquoise;
@@ -397,9 +432,9 @@ a span#register-new-account:hover{
   text-decoration: none;
 }
 
+
 // create challenge page css 
 .challenge-add{
-
   border: 5px solid $yellow;
   border-radius: 13px;
   overflow-y: auto;

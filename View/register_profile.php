@@ -9,17 +9,19 @@
     <link rel="icon" type="image/png" href="style/b.png" />
     <link rel="stylesheet" href="style/style.css">
     <title>Becode2U</title>
-
-
 </head>
-
+<header>
+    <nav class="login">
+        <a href="index.php"><i class="fas fa-arrow-left"></i>  RETURN TO SIGN IN</a>
+    </nav>
+</header>
 
 <div class="signin-container">
     <div class="signin-form">
-        <h1>Register a new account:</h1>
+        <h1>Register A New Account</h1>
         <form action="" method="POST">
            
-            </select><br>
+            
             <input type="text" name="userName" placeholder="Full Name">
             <br><br>
             <input type="text" name="email" placeholder="Email address">
@@ -33,7 +35,7 @@
                 <option value="2">Student</option>
             </select>
             <br><br>
-            <hr>
+            <!-- <hr> -->
             <button type="submit" name="register" value="register" id="register-db">Register Now!</button>
             <br><br>
             <?php if(!empty($error)) : ?>
@@ -42,8 +44,5 @@
         </form>
     </div>
 </div>
-
-
 </body>
-
 </html>

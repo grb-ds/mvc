@@ -1,57 +1,46 @@
 <?php
 declare(strict_types = 1);
-
-/*require_once './Modal/business/Coacher.php';
-require_once './Modal/business/Student.php';*/
-/*require_once '../Modal/repository/UserRepository.php';*/
-/*require_once '../Modal/business/User.php';
-require_once '../Modal/repository/CoacherRepository.php';*/
-
 require_once './Modal/business/Challenge.php';
 require_once './Modal/repository/ChallengeRepository.php';
 
 class ChallengeController {
 
     private $challengeRepository;
-   // public $loginError;
     public  $message;
 
-    /**
-     * UserController constructor.
-     */
     public function __construct(DatabaseManager $databaseManager)
     {
         $this->challengeRepository = new ChallengeRepository($databaseManager);
         $this->message = "";
     }
 
-    public function render($get, $post) {
-
+    public function render($get, $post) 
+    {
         if (isset($_POST["addChallenge"])) {
+            $challenge = $this->create(
+                $_POST['name'],
+                $_POST['description'],
+                $_POST['dayStart'],
+                $_POST['monthStart'],
+                $_POST['yearStart'],
+                $_POST['dayEnd'],
+                $_POST['monthEnd'],
+                $_POST['yearEnd'],
+                $_POST['url'],
+                $_POST['type'],
+                (int)$_POST['classes']
+            );
 
-            $challenge =  $this->create($_POST['name'],
-                            $_POST['description'],
-                            $_POST['dayStart'],
-                            $_POST['monthStart'],
-                            $_POST['yearStart'],
-                            $_POST['dayEnd'],
-                            $_POST['monthEnd'],
-                            $_POST['yearEnd'],
-                            $_POST['url'],
-                            $_POST['type'],
-                            (int)$_POST['classes']);
-
-          if ($challenge) {
-             $this->sucessMessage();
-          } else {
-             $this->errorMessage();
-          }
+            if ($challenge) {
+                $this->sucessMessage();
+            } else {
+                $this->errorMessage();
+            }
         }
-
         require "View/create_challenge.php";
     }
 
-     public function create($name, $description, $dayOpen, $monthOpen, $yearOpen, $dayEnd, $monthEnd, $yearEnd, $url, $type, $classId)
+    public function create($name, $description, $dayOpen, $monthOpen, $yearOpen, $dayEnd, $monthEnd, $yearEnd, $url, $type, $classId)
     {
         $dateStartS = date_create($yearOpen."-".$monthOpen."-".$dayOpen);
         $dateEndS = date_create($yearEnd."-".$monthEnd."-".$dayEnd);
@@ -61,11 +50,10 @@ class ChallengeController {
         return $this->challengeRepository->create($name, $description, $dateStart, $dateEnd, $url, $type, $classId);
     }
 
-    public function getByClassId($classId)
-    {
-       return $this->challengeRepository->findByClassId($classId);
-    }
-
+    // public function getByClassId($classId)
+    // {
+    //     return $this->challengeRepository->findByClassId($classId);
+    // }
 
     public function errorMessage()
     {
@@ -82,6 +70,4 @@ class ChallengeController {
     public function getMessage(){
         return $this->message;
     }
-
-
 }

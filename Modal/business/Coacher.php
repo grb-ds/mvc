@@ -124,5 +124,4 @@ class Coacher {
     {
         $this->userId = $userId;
     }
-
 }

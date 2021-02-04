@@ -15,12 +15,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
     <link rel="stylesheet" href="style/style.css">
     <title>Becode2U</title>
-
-    
 </head>
 
 <header>
     <nav class="logout">
-        <a href="index.php?page=home"><i class="fas fa-sign-out-alt"></i></a>
+        <a href="index.php?page=home">LOG OUT<i class="fas fa-sign-out-alt"></i></a>
     </nav>
 </header>

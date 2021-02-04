@@ -1,8 +1,6 @@
 <?php 
-
 require_once 'includes/header_watch.php';
 require_once 'includes/nav_student.php';
-
 ?>
 
 <div class="container-profile">
@@ -12,8 +10,8 @@ require_once 'includes/nav_student.php';
                 <span class="welcome-name"><?= $_SESSION["logginUserName"]; ?>!</span><br>
             </h3>
             <h5> How are you doing today?</h5>
-
         </div>
+
         <div class="exercise-list">
             <h3>Exercises</h3>
             <?php foreach($_SESSION['challenges'] as $challenge) : ?>
@@ -22,7 +20,6 @@ require_once 'includes/nav_student.php';
                 <p><b>Date:</b> <?= $challenge["date_open"];?> - <?= $challenge["date_due"];?></p>
                 <a href="<?= $challenge["url"];?>"><?= $challenge["url"];?></a>
             </div><?php endforeach ?>
-
         </div>
 
         <div class="watch">
@@ -46,8 +43,7 @@ require_once 'includes/nav_student.php';
         <div class="student-list">
             <h3>Students</h3>
             <p>Curious about your fellow classmates?</p>
-            <button class="modal-btn" onclick="document.getElementById('class-modal').style.display='block'">More
-                Info</button>
+            <button class="modal-btn" onclick="document.getElementById('class-modal').style.display='block'">More Info</button>
 
             <div id="class-modal" class="modal">
                 <span onclick="document.getElementById('class-modal').style.display='none'" class="close"
@@ -59,8 +55,6 @@ require_once 'includes/nav_student.php';
                     </tr>
                 </table>
             </div>
-
-            
         </div>
 
         <div id="class-modal-exercise" class="modal">
@@ -77,13 +71,10 @@ require_once 'includes/nav_student.php';
     </div>
 </div>
 
-
-
 <script>
 let modalClass = document.getElementById('class-modal');
 let modalExercise = document.getElementById('class-modal-exercise');
 
-// When the user clicks anywhere  of the modal, close it
 window.onclick = function(event) {
     if (event.target == modalClass) {
         modalClass.style.display = "none";
@@ -96,10 +87,9 @@ window.onclick = function(event) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-
     var calendar = $('#calendar').fullCalendar({
 
-            //fixedWeekCount: false,
+        //fixedWeekCount: false,
         editable: false,
         // height: 400 ,
         contentHeight: 350,

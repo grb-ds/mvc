@@ -19,10 +19,6 @@ input:-internal-autofill-selected {
   background-color: transparent;
 }
 
-input, textarea, select {
-  background-color: transparent;
-}
-
 button {
   border: none;
   outline: none;
@@ -46,6 +42,27 @@ a:hover {
 }
 
 .logout a i:hover {
+  color: #c6dddd;
+}
+
+.login {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  padding: 1rem 3rem;
+  font-size: 1.5rem;
+}
+
+.login i {
+  color: white;
+}
+
+.login a {
+  color: white;
+  font-size: 1rem;
+}
+
+.login a:hover, .login i:hover {
   color: #c6dddd;
 }
 
@@ -360,7 +377,7 @@ div#calendar {
 }
 
 .signin-form {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
   border-radius: 13px;
   width: 70%;
   height: 80vh;
@@ -405,6 +422,20 @@ div#calendar {
   background-color: #c6dddd;
 }
 
+.signin-form select#userRole {
+  background: #c6dddd;
+  padding: .5rem 1rem;
+  border: 1px solid #3bc4c1;
+  font-family: "Poppins", sans-serif;
+  color: #3bc4c1;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.signin-form select#userRole:focus {
+  outline: none;
+}
+
 .signin-form #login {
   font-family: "Poppins", sans-serif;
   border-radius: 13px;
@@ -434,6 +465,19 @@ div#calendar {
   font-size: 1rem;
 }
 
+button#register-db {
+  font-family: "Poppins", sans-serif;
+  border-radius: 13px;
+  padding: 0.8rem 2rem;
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  text-transform: uppercase;
+  background-color: #fbe487;
+  color: #878c91;
+  font-size: 1rem;
+}
+
 a span#register-new-account {
   color: #3bc4c1;
   font-size: 1.2rem;
@@ -450,6 +494,10 @@ a span#register-new-account:hover {
   border-radius: 13px;
   overflow-y: auto;
   height: 80vh;
+}
+
+.challenge-add input, .challenge-add textarea, .challenge-add select {
+  background-color: transparent;
 }
 
 .challenge-add input:focus, .challenge-add textarea:focus, .challenge-add select:focus {

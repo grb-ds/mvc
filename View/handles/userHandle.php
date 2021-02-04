@@ -6,9 +6,3 @@ if (isset($_SESSION["logginUserId"]) && isset($_SESSION["logginUserName"])){
     $userId = $_SESSION["logginUserId"];
     $userName = $_SESSION["logginUserName"];
 }
-
-
-
-
-
-
