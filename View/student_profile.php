@@ -78,12 +78,11 @@ require_once 'includes/header_watch.php';
 let modalClass = document.getElementById('class-modal');
 let modalExercise = document.getElementById('class-modal-exercise');
 
-
 // When the user clicks anywhere  of the modal, close it
 window.onclick = function(event) {
     if (event.target == modalClass) {
         modalClass.style.display = "none";
-    }
+    } 
 }
 window.onclick = function(event) {
     if (event.target == modalExercise) {

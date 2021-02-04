@@ -124,12 +124,29 @@ window.addEventListener('DOMContentLoaded', () => {
         //selectHelper:true,
        
         //cannot use PHP tag inside javascript codes, can only use a file return the values
-        events: 'Controller/WatchController.php',
+        events: 'test.php',
                 displayEventTime: false,
         eventColor: '#d889a7',
         eventTextColor: 'white',
     });
 });
+
+// $(document).ready(function(){
+//         var calendar = $('#calendar').fullCalendar({
+//             editable:true,
+//             header:{
+//                 left:'prev,next today',
+//                 center:'title',
+//                 right:'month,agendaWeek,agendaDay'
+//             },
+//             events:"<?php// $this->getWatchSchedule(); ?>",
+//             selectable:true,
+//             selectHelper:true,
+            
+//         });
+//     });
+             
+    </script>
 </script>
 <?php 
 require_once 'includes/footer.php';

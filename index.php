@@ -10,6 +10,7 @@ require_once 'Controller/CoachController.php';
 require_once 'Controller/StudentController.php';
 require_once 'Controller/ChallengeController.php';
 
+
 require_once 'Modal/repository/UserRepository.php';
 require_once 'Modal/repository/RegisterRepository.php';
 
@@ -49,8 +50,10 @@ $nextWatch = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['login'])){
         $userController = new UserController($databaseManager);
+       
         $userController->render($_GET, $_POST);
 
+        
     }
 }
 

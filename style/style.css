@@ -272,8 +272,8 @@ div#calendar {
 }
 
 .signin-container {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.2)), to(rgba(255, 255, 255, 0.4))), url("../style/wall.jfif");
-  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.4)), url("../style/wall.jfif");
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.2)), to(rgba(255, 255, 255, 0.4))), url("style/arrow.jfif");
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.4)), url("style/arrow.jfif");
   background-size: cover;
   height: 100vh;
 }
