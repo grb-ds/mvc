@@ -13,9 +13,9 @@ require_once 'handles/coacherHandle.php';
     <div class="grid-profile">
         <div class="welcome-msg">
             <h3>Welcome,
-                <span class="welcome-name"><?php echo $_SESSION["logginUserName"]; ?>!</span><br>
-                How are you doing today?
-            </h3>
+                <span class="welcome-name"><?php echo $_SESSION["logginUserName"]; ?>!</span><br></h3>
+               <h5> How are you doing today?</h5>
+            
         </div>
         <div class="exercise-list">
             <h3>Exercises</h3>
@@ -80,16 +80,35 @@ require_once 'handles/coacherHandle.php';
                 </table>
             </div>
         </div>
+
+        <div id="class-modal-exercise" class="modal">
+            <span onclick="document.getElementById('class-modal-excise').style.display='none'" class="close"
+                title="Close Modal">&times;</span>
+            
+            <?php foreach($this->challenges as $challenge){?>
+            <div id="challenge">
+                <p><b>Name:</b> <?php echo $challenge["name"];?></p>
+                <p><b>Date:</b> <?php echo $challenge["date_open"];?> - <?php echo $challenge["date_due"];?></p>
+                <a href="<?php echo $challenge["url"];?>"><?php echo $challenge["url"];?></a>
+            </div><?php }?>
+        </div>
+
     </div>
 </div>
 
 <script>
 var modal = document.getElementById('class-modal');
+var modalExercise = document.getElementById('class-modal-exercise');
 
 // When the user clicks anywhere  of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
+    }
+}
+window.onclick = function(event) {
+    if (event.target == modalExercise) {
+        modalExercise.style.display = "none";
     }
 }
 

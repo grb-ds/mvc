@@ -50,10 +50,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['login'])){
         $userController = new UserController($databaseManager);
         $userController->render($_GET, $_POST);
-        //$baseController = new BaseController($databaseManager);
-       // $nextWatch = $baseController->upComingWatch($databaseManager);
-   /*     $class1 = $nextWatch->getClassmates(1);
-        $class2 = $nextWatch->getClassmates(2);*/
 
     }
 }
@@ -76,6 +72,7 @@ if (isset($_GET["page"]) && $_GET["page"] === "createChallenge" ) {
     // $challengeController->renderCreateView($_GET, $_POST);
     $challengeController->render($_GET, $_POST);
 }
+
 
 
 // if ( if the submit is true)

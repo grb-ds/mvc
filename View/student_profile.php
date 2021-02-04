@@ -1,13 +1,7 @@
 <?php 
 
 require_once 'includes/header_watch.php';
-var_dump($this->challenges);
-foreach($this->challenges as $challenge){
-    echo($challenge["name"]);
-}
-// foreach($this->challenges as $oneresult){
-//     var_dump($oneresult["type"]);
-// }
+
 ?>
 
 <div class="container-profile">
@@ -15,14 +9,15 @@ foreach($this->challenges as $challenge){
         <div class="welcome-msg">
             <h3>Welcome,
                 <span class="welcome-name"><?php echo $_SESSION["logginUserName"]; ?>!</span><br>
-                How are you doing today?
             </h3>
+            <h5> How are you doing today?</h5>
+
         </div>
         <div class="exercise-list">
-            <?php //TODO: for the shortlist of exercises?>
             <h3>Exercises</h3>
             <?php foreach($this->challenges as $challenge){?>
-            <div id="challenge"><p><b>Name:</b> <?php echo $challenge["name"];?></p>
+            <div id="challenge">
+                <p><b>Name:</b> <?php echo $challenge["name"];?></p>
                 <p><b>Date:</b> <?php echo $challenge["date_open"];?> - <?php echo $challenge["date_due"];?></p>
                 <a href="<?php echo $challenge["url"];?>"><?php echo $challenge["url"];?></a>
             </div><?php }?>
@@ -55,10 +50,24 @@ foreach($this->challenges as $challenge){
                 <table>
                     <tr> <?php foreach($this->classmates as $classmate){?>
                         <td><?php echo($classmate["first_name"]);?> </td>
-                            <?php }?> 
+                        <?php }?>
                     </tr>
                 </table>
             </div>
+
+            
+        </div>
+
+        <div id="class-modal-exercise" class="modal">
+            <span onclick="document.getElementById('class-modal-excise').style.display='none'" class="close"
+                title="Close Modal">&times;</span>
+            
+            <?php foreach($this->challenges as $challenge){?>
+            <div id="challenge">
+                <p><b>Name:</b> <?php echo $challenge["name"];?></p>
+                <p><b>Date:</b> <?php echo $challenge["date_open"];?> - <?php echo $challenge["date_due"];?></p>
+                <a href="<?php echo $challenge["url"];?>"><?php echo $challenge["url"];?></a>
+            </div><?php }?>
         </div>
     </div>
 </div>
@@ -66,12 +75,19 @@ foreach($this->challenges as $challenge){
 
 
 <script>
-var modal = document.getElementById('class-modal');
+let modalClass = document.getElementById('class-modal');
+let modalExercise = document.getElementById('class-modal-exercise');
+
 
 // When the user clicks anywhere  of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+    if (event.target == modalClass) {
+        modalClass.style.display = "none";
+    }
+}
+window.onclick = function(event) {
+    if (event.target == modalExercise) {
+        modalExercise.style.display = "none";
     }
 }
 
@@ -79,18 +95,18 @@ window.addEventListener('DOMContentLoaded', () => {
 
     var calendar = $('#calendar').fullCalendar({
 
-    //fixedWeekCount: false,
-    editable: false,
-    // height: 400 ,
-    contentHeight: 350,
-    selectable: true,
-    //selectHelper:true,
+        //fixedWeekCount: false,
+        editable: false,
+        // height: 400 ,
+        contentHeight: 350,
+        selectable: true,
+        //selectHelper:true,
 
-    //cannot use PHP tag inside javascript codes, can only use a file return the values
-    events: '../Controller/WatchController.php',
-    displayEventTime: false,
-    eventColor: '#d889a7',
-    eventTextColor: 'white',
+        //cannot use PHP tag inside javascript codes, can only use a file return the values
+        events: '../Controller/WatchController.php',
+        displayEventTime: false,
+        eventColor: '#d889a7',
+        eventTextColor: 'white',
     });
 });
 </script>
