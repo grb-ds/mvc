@@ -37,6 +37,8 @@ class UserController
             $_SESSION["logginUserName"] = $user->getUsername();
             $_SESSION["user_role"] = $user->getRoleId();
             $_SESSION["challenges"] = $this->getChallenges();
+            $this->watchSchedule = $this->getWatchSchedule();
+            $_SESSION["watchSchedule"] = $this->watchSchedule;
         }
 
         //load the view
@@ -176,15 +178,7 @@ class UserController
         $databaseUser = $this->databaseManager->database->prepare($sql);
         $databaseUser->execute();
         $result = $databaseUser->fetchAll();
-    
-        foreach($result as $row)
-        {
-            $myArray[] = array(
-                'id'   => $row["id"],
-                'title'   => $row["first_name"],
-                'start'   => $row["date"],
-            );
-        }
-        echo json_encode($myArray);
+        return $result;    
+
     }
 }

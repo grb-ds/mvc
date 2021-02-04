@@ -1,4 +1,5 @@
-<?php 
+<!-- <?php 
+// TODO: can delete it
 //This is for the displaying of the previous/exisiting challenges
 require 'includes/header_watch.php';
 require 'includes/nav_student.php';
