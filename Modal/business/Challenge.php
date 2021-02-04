@@ -11,6 +11,17 @@ class Challenge {
     private $type;
     private $class_id;
 
+    /**
+     * Challenge constructor.
+     * @param $id
+     * @param $name
+     * @param $description
+     * @param $date_open
+     * @param $date_due
+     * @param $url
+     * @param $type
+     * @param $class_id
+     */
     public function __construct()
     {
     }

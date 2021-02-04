@@ -54,11 +54,8 @@ class UserController {
 
            // $_SESSION['user'] = serialize((array) $user);
 
-            
-            $this->challenges = $this->getChallenges();
-
-
-         
+           // $this->challenges = $this->getChallenges();
+            $this->challenges = $this->getChallengesByClassId(1);
             
         }
 
@@ -73,6 +70,11 @@ class UserController {
     public function login($username, $password)
     {
        return $this->userRepository->find($username,$password);
+    }
+
+    public function getChallengesByClassId($classId)
+    {
+        return $this->userRepository->getChallengesByClassId($classId);
     }
 
     public function renderByUserRole($user)
