@@ -25,6 +25,7 @@ class UserController {
     public $class2;
     public $reminder;
     public $classmates;
+    public $challenges;
 
     /**
      * UserController constructor.
@@ -50,7 +51,7 @@ class UserController {
            // $_SESSION['user'] = serialize((array) $user);
 
             
-
+            $this->challenges = $this->getChallenges();
          
             
         }
@@ -193,5 +194,16 @@ class UserController {
         return $result;
     }
 
+    public function getChallenges(){
+        
 
+        $sql ="SELECT * FROM challenge";
+
+        $databaseUser = $this->databaseManager->database->prepare($sql);
+        $databaseUser->execute();
+        $result = $databaseUser->fetchALL();
+        return $result;
+       
+       
+    }
 }

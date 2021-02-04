@@ -1,6 +1,13 @@
 <?php 
 
 require_once 'includes/header_watch.php';
+var_dump($this->challenges);
+foreach($this->challenges as $challenge){
+    echo($challenge["name"]);
+}
+// foreach($this->challenges as $oneresult){
+//     var_dump($oneresult["type"]);
+// }
 ?>
 
 <div class="container-profile">
@@ -14,10 +21,11 @@ require_once 'includes/header_watch.php';
         <div class="exercise-list">
             <?php //TODO: for the shortlist of exercises?>
             <h3>Exercises</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam, sint!</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam, sint!</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam, sint!</p>
-            <a href="">More info<i class="fas fa-plus"></i></a>
+            <?php foreach($this->challenges as $challenge){?>
+            <div id="challenge"><p><b>Name:</b> <?php echo $challenge["name"];?></p>
+                <p><b>Date:</b> <?php echo $challenge["date_open"];?> - <?php echo $challenge["date_due"];?></p>
+                <a href="<?php echo $challenge["url"];?>"><?php echo $challenge["url"];?></a>
+            </div><?php }?>
 
         </div>
 
