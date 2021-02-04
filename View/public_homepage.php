@@ -1,4 +1,4 @@
-<?php var_dump($_SESSION); ?>
+<?php ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,9 +11,8 @@
     <link rel="stylesheet" href="style/style.css">
     <title>Becode2U</title>
 </head>
-<body>
-  
-  
+<body>  
+
 <div class="signin-container">
     <div class="signin-form">
     <h1>WELCOME BACK! </h1> 

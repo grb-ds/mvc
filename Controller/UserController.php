@@ -36,27 +36,27 @@ class UserController {
         $this->userRepository = new UserRepository($databaseManager);
         $this->message = "";
         $this->databaseManager = $databaseManager;
-        // $challenges = $this->challenges;
         
     }
 
     public function render(array $get, array $post)
     {
-        var_dump($_SESSION);
+
+        
         //this is just example code, you can remove the line below
 
         $user = $this->login($post['email'], $post['password']);
 
 
         if ($user) {
-            $_SESSION["userEmail"] = $post['email'];
-            $_SESSION["userPassword"] = $post['password'];
+            $_SESSION["userEmail"] = $user->getEmail();
+            $_SESSION["userPassword"] = $user->getPassword();
             $_SESSION["logginUserId"] = $user->getId();
             $_SESSION["logginUserName"] = $user->getUsername();
-
+            $_SESSION["user_role"] = $user->getRoleId();
+            $_SESSION["challenges"] = $this->getChallenges();
+            
            // $_SESSION['user'] = serialize((array) $user);
-
-            $this->challenges = $this->getChallenges();
             // $this->challenges = $this->getChallengesByClassId(1);
             
         }
@@ -71,7 +71,7 @@ class UserController {
 
     public function login($username, $password)
     {
-       return $this->userRepository->find($username,$password);
+        return $this->userRepository->find($username,$password);
     }
 
     public function getChallengesByClassId($classId)
@@ -83,18 +83,20 @@ class UserController {
     {
         if ($user)
         {
-             switch ($user->getRoleId()) {
+            switch ($user->getRoleId()) {
                 case 1:
 
                     // Below function for the coach, needed to be loaded on the login page
-                    $this->nextWatch = $this->upComingWatch();
+                    $this->upComingWatch();
                     $this->class1 = $this->getClassmates(1);
+                    $_SESSION["class1"] = $this->class1;
+
                     $this->class2 = $this->getClassmates(2);
+                    $_SESSION["class2"] = $this->class2;
+
 
                     require "View/coach_profile.php";
                     require 'View/includes/nav_coach.php';
-                   // require 'test.php';
-
                   //  header("location: ./View/coach_profile.php");
 
                     break;
@@ -104,12 +106,16 @@ class UserController {
                     $id = $_SESSION["logginUserId"];
 
                     $this->reminder=$this->watchReminder($id);
+                    $_SESSION["reminder"] = $this->reminder;
                     $classNumber=$this->getClassNumber($id);
-                    $this->classmates = $this->getClassmates($classNumber);
+                    //$_SESSION["classNumber"] = $this->classNumber;
+                    $this->classmates = $this->getClassmates($classNumber);  
+                    $_SESSION["classmates"] = $this->classmates;
 
-                   require "View/student_profile.php";
+
+                    require "View/student_profile.php";
                     require 'View/includes/nav_student.php';
-                   break;
+                    break;
             }
             $this->sucessMessage();
         } else {
@@ -134,15 +140,15 @@ class UserController {
         return $this->message;
     }
 
-   
     public function upComingWatch(){
 
         $sql = "SELECT watch.id, watch.name, watch.date, students.first_name FROM watch, students WHERE students.id=watch.student_id;";
 
         $databaseUser = $this->databaseManager->database->prepare($sql);
         $databaseUser->execute();
-        $result = $databaseUser->fetch();
-        return $result;
+        $this->nextWatch = $databaseUser->fetch();
+        //return $this->nextWatch;
+        $_SESSION["nextWatch"] =$this->nextWatch;
     }
 
     public function watchReminder($id)
@@ -187,7 +193,6 @@ class UserController {
         $databaseUser->execute();
         $result = $databaseUser->fetchALL();
         return $result;
-       
     }
 
     public function getWatchSchedule()
