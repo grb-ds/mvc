@@ -13,9 +13,9 @@ require_once './config.php';
     <div class="grid-profile">
         <div class="welcome-msg">
             <h3>Welcome,
-                <?= $_SESSION['logginUserName'] ?>
+                <span class="welcome-name"><?= $_SESSION["logginUserName"]; ?>!</span><br>
             </h3>
-            Enjoy and learn! Have a fun day!!
+            <h5> <?php echo $this->message; ?></h5>
         </div>
 
         <div class="exercise-list challenge-add">

@@ -9,8 +9,9 @@ require_once 'handles/coacherHandle.php';
     <div class="grid-profile">
         <div class="welcome-msg">
             <h3>Welcome,
-                <span class="welcome-name"><?= $_SESSION["logginUserName"]; ?>!</span><br></h3>
-                <h5> How are you doing today?</h5>
+                <span class="welcome-name"><?= $_SESSION["logginUserName"]; ?>!</span><br>
+            </h3>
+            <h5> How are you doing today?</h5>
         </div>
 
         <div class="exercise-list">
