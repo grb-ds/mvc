@@ -10,21 +10,10 @@ require_once './View/handles/coacherHandle.php';
 require_once './config.php';
 ?>
 
-<div class="resize-container">
 
-</div>
 <div class="container-profile">
-    <div class="grid-profile">
-        <div class="welcome-msg">
-            <h3>Welcome,
-                <?php echo $_SESSION['logginUserName'] ?>
-            </h3>
-
-            <?php //TODO: to display welcome msg?>
-            Enjoy and learn! Have a fun day!!
-
-        </div>
-        <div class="exercise-list challenge-add">
+    
+        <div class="challenge-add">
          <!--   <div class="container">-->
 
                 <!--<form name="add" method="post" action="./View/handles/coacherHandle.php">-->
@@ -103,7 +92,7 @@ require_once './config.php';
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <input type="submit" class="btn btn-secondary" value="Add" name="addChallenge">
+                        <input type="submit" class="btn btn-secondary" value="Add" name="addChallenge" id="btn-create-challenge">
                     </div>
                 </form>
           <!--  </div>-->

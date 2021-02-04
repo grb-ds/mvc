@@ -19,10 +19,6 @@ input:-internal-autofill-selected {
   background-color: transparent;
 }
 
-input {
-  overflow: none;
-}
-
 button {
   border: none;
   outline: none;
@@ -194,7 +190,6 @@ i {
 
 .exercise-list::-webkit-scrollbar {
   width: .4em;
-  height: 10px;
 }
 
 .exercise-list::-webkit-scrollbar-track {
@@ -211,23 +206,6 @@ i {
 .challenge-display {
   margin: .3rem;
   border: 2px solid #d889a7;
-  border-radius: 13px;
-  overflow-x: auto;
-  overflow-y: hidden;
-}
-
-.challenge-display::-webkit-scrollbar {
-  height: 3px;
-}
-
-.challenge-display::-webkit-scrollbar-track {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-.challenge-display::-webkit-scrollbar-thumb {
-  background-color: #c4c3c4;
-  height: 10px;
   border-radius: 13px;
 }
 
@@ -330,8 +308,6 @@ div#calendar {
   /* Full width */
   height: 20rem;
   /* Full height */
-  overflow: auto;
-  /* Enable scroll if needed */
   background-color: #cdcdcc;
   border: 15px solid #3bc4c1;
   border-radius: 12px;
@@ -463,5 +439,51 @@ a span#register-new-account {
 a span#register-new-account:hover {
   color: #d889a7;
   text-decoration: none;
+}
+
+.challenge-add {
+  border: 5px solid #fbe487;
+  border-radius: 13px;
+  overflow-y: auto;
+  height: 80vh;
+}
+
+.challenge-add input, .challenge-add textarea, .challenge-add select {
+  background-color: transparent;
+}
+
+.challenge-add input:focus, .challenge-add textarea:focus, .challenge-add select:focus {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.challenge-add::-webkit-scrollbar {
+  width: .4em;
+}
+
+.challenge-add::-webkit-scrollbar-track {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.challenge-add::-webkit-scrollbar-thumb {
+  background-color: #fbe487;
+  height: 10px;
+  border-radius: 13px;
+}
+
+.modal-title {
+  text-transform: uppercase;
+  font-size: 3rem;
+  color: #fbe487;
+  text-shadow: 0.5px 0.5px #c4c3c4;
+}
+
+.btn-secondary {
+  color: #878c91;
+  background-color: #fbe487;
+  border-color: #fbe487;
+  padding: 0.5rem 2rem;
 }
 /*# sourceMappingURL=style.css.map */

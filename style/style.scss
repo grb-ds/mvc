@@ -27,7 +27,7 @@ input:-internal-autofill-selected {
   background-color: transparent;
 }
 input{
-  overflow: none;
+  //overflow: none;
 }
 button{
   border: none;
@@ -163,6 +163,7 @@ i{
   border: 3px solid $grey;
   overflow-y: auto;
   overflow-x: hidden;
+
   button#coach-add-challenge-btn{
     background-color: $dirty-pink;
     margin-bottom: .3rem;
@@ -176,7 +177,7 @@ i{
 }
 .exercise-list::-webkit-scrollbar {
   width: .4em;
-  height: 10px;
+  //height: 10px;
 }
 .exercise-list::-webkit-scrollbar-track {
   box-shadow: none;
@@ -186,26 +187,14 @@ i{
   height: 10px;
   border-radius: 13px;
 }
+
 .challenge-display{
   margin:  .3rem;
   border: 2px solid $dirty-pink;
   border-radius: 13px;
-  overflow-x:auto;
-  overflow-y:hidden;
+  
 }
-.challenge-display::-webkit-scrollbar {
-  //width: .1em;
-  height: 3px;
-}
-.challenge-display::-webkit-scrollbar-track {
-  box-shadow: none;
-}
- 
-.challenge-display::-webkit-scrollbar-thumb {
-  background-color: $grey;
-  height: 10px;
-  border-radius: 13px;
-}
+
 
 .watch {
   grid-row: 1/4;
@@ -285,7 +274,7 @@ div#calendar {
   top: 25vh;
   width: 40rem; /* Full width */
   height: 20rem; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
+  //overflow: auto; /* Enable scroll if needed */
   background-color: #cdcdcc;
   border: 15px solid $turquoise;
   border-radius: 12px;
@@ -408,3 +397,46 @@ a span#register-new-account:hover{
   text-decoration: none;
 }
 
+// create challenge page css 
+.challenge-add{
+
+  border: 5px solid $yellow;
+  border-radius: 13px;
+  overflow-y: auto;
+  height: 80vh;
+  input, textarea, select{
+    background-color: transparent;
+  }
+  input:focus, textarea:focus, select:focus{
+    background-color: transparent;
+    outline: none;
+    border: none;
+  }
+}
+
+.challenge-add::-webkit-scrollbar {
+  width: .4em;
+  //height: 10px;
+}
+
+.challenge-add::-webkit-scrollbar-track {
+  box-shadow: none;
+}
+
+.challenge-add::-webkit-scrollbar-thumb {
+  background-color: $yellow;
+  height: 10px;
+  border-radius: 13px;
+}
+.modal-title{
+  text-transform: uppercase;
+  font-size: 3rem;
+  color: $yellow;
+  text-shadow: .5px .5px $grey;
+}
+.btn-secondary {
+  color: $dark-grey;
+  background-color: $yellow;
+  border-color: $yellow;
+  padding: 0.5rem 2rem;
+}
