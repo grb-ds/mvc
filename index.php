@@ -5,9 +5,6 @@ require_once 'setup.php';
 
 // files for log in
 require_once 'Controller/UserController.php';
-require_once 'Controller/BaseController.php';
-require_once 'Controller/CoachController.php';
-require_once 'Controller/StudentController.php';
 require_once 'Controller/ChallengeController.php';
 
 

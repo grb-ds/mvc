@@ -2,7 +2,6 @@
 declare(strict_types = 1);
 require_once './Modal/repository/UserRepository.php';
 require_once './Modal/business/User.php';
-require_once './Modal/repository/CoacherRepository.php';
 
 class UserController 
 {
@@ -179,6 +178,5 @@ class UserController
         $databaseUser->execute();
         $result = $databaseUser->fetchAll();
         return $result;    
-
     }
 }
