@@ -20,6 +20,7 @@ a {
   text-decoration: none;
   color: $dark-grey;
   
+  
 }
 input:-internal-autofill-selected {
 
@@ -32,6 +33,10 @@ button{
   border: none;
   outline: none;
 }
+ a:hover{
+  text-decoration: none;
+  color: inherit;
+}
 
 // nav bar css
 .logout {
@@ -41,7 +46,7 @@ button{
   padding: 1rem 3rem;
   font-size: 1.5rem;
   i {
-    color: $grey;
+    color: $dark-grey;
   }
   a i:hover {
     color: $tiffany;
@@ -86,9 +91,17 @@ button#nav-class i{
 button#nav-class i{
   border: none;
   outline: none;
-  
 
   background-color: #a0dfde;
+}
+
+button#nav-exercise i{
+  border: none;
+  outline: none;
+ 
+  
+
+  background-color: #f8fafa;
 }
 i{
   background-color: transparent;
@@ -147,7 +160,51 @@ i{
   grid-column: 1/2;
   grid-row: 2/4;
   //background-color: $dirty-pink;
-  border: 3px solid $dirty-pink;
+  border: 3px solid $grey;
+  overflow-y: auto;
+  overflow-x: hidden;
+  button#coach-add-challenge-btn{
+    background-color: $dirty-pink;
+    margin-bottom: .3rem;
+    padding: .5rem .5rem;
+    color: white;
+    border-radius: 13px;
+    a{
+      color: white;
+    }
+  }  
+}
+.exercise-list::-webkit-scrollbar {
+  width: .4em;
+  height: 10px;
+}
+.exercise-list::-webkit-scrollbar-track {
+  box-shadow: none;
+}
+.exercise-list::-webkit-scrollbar-thumb {
+  background-color: $dirty-pink;
+  height: 10px;
+  border-radius: 13px;
+}
+.challenge-display{
+  margin:  .3rem;
+  border: 2px solid $dirty-pink;
+  border-radius: 13px;
+  overflow-x:auto;
+  overflow-y:hidden;
+}
+.challenge-display::-webkit-scrollbar {
+  //width: .1em;
+  height: 3px;
+}
+.challenge-display::-webkit-scrollbar-track {
+  box-shadow: none;
+}
+ 
+.challenge-display::-webkit-scrollbar-thumb {
+  background-color: $grey;
+  height: 10px;
+  border-radius: 13px;
 }
 
 .watch {
@@ -171,6 +228,7 @@ i{
   grid-column: 2/3;
   grid-row: 2/3;
 }
+
 
 .circle {
   background: $turquoise;

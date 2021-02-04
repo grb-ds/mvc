@@ -26,11 +26,15 @@ require_once 'includes/nav_student.php';
         </div>
 
         <div class="watch">
-            <div class="container">
                 <h3>Watch Schedule</h3>
-                <div id="calendar"></div>
-
-            </div>
+                <?php foreach($this->watchSchedule as $watch):?>
+                    <div>
+                        <p><?= $watch["name"];?> <br>
+                        <?= $watch["date"]; ?> <br>
+                        <?= $watch["first_name"];?>
+                        </p>
+                    </div>
+                    <?php endforeach ?>
         </div>
 
         <div class="repo">

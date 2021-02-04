@@ -18,25 +18,32 @@ require_once 'handles/coacherHandle.php';
         </div>
         <div class="exercise-list">
             <h3>Exercises</h3>
+              <!-- <button type="submit" name="createChallenge"><a href="View/create_challenge.php">Create New Challenge</a></button>-->
+              <button type="submit" name="createChallenge" id="coach-add-challenge-btn"><a href="index.php?page=createChallenge">Create New Challenge</a></button>
+            
             <?php foreach($_SESSION['challenges'] as $challenge) : ?>
-            <div id="challenge"><p><b>Name:</b> <?= $challenge["name"];?></p>
-                <p><b>Date:</b> <?= $challenge["date_open"];?> - <?= $challenge["date_due"];?></p>
-                <a href="<?= $challenge["url"];?>"><?= $challenge["url"];?></a>
+            <div class="challenge-display">
+                <p><b>Name:</b> <?= $challenge["name"];?><br>
+                    <b>Date:</b> <?= $challenge["date_open"];?> - <?= $challenge["date_due"];?></br>
+                    <a href="<?= $challenge["url"];?>"><?= $challenge["url"];?></a>
+                </p>
             </div>
             <?php endforeach ?>
 
 
-            <!-- <button type="submit" name="createChallenge"><a href="View/create_challenge.php">Create New Challenge</a></button>-->
-            <button type="submit" name="createChallenge"><a href="index.php?page=createChallenge">Create New Challenge</a></button>
-            
+          
         </div>
 
         <div class="watch">
-            <div class="container">
                 <h3>Watch Schedule</h3>
-                <div id="calendar"></div>
-            </div>
-
+                <?php foreach($this->watchSchedule as $watch):?>
+                    <div>
+                        <p><?= $watch["name"];?> <br>
+                        <?= $watch["date"]; ?> <br>
+                        <?= $watch["first_name"];?>
+                        </p>
+                    </div>
+                    <?php endforeach ?>
         </div>
         <div class="repo">
             <h3>Upcoming Watch</h3>
@@ -103,25 +110,6 @@ window.onclick = function(event) {
         modalExercise.style.display = "none";
     }
 }
-
-window.addEventListener('DOMContentLoaded', () => {
-
-    var calendar = $('#calendar').fullCalendar({
-
-            //fixedWeekCount: false,
-        editable: false,
-        // height: 400 ,
-        contentHeight: 350,
-        selectable:true,
-        //selectHelper:true,
-
-        //cannot use PHP tag inside javascript codes, can only use a file return the values
-        events: 'test.php',
-        displayEventTime: false,
-        eventColor: '#d889a7',
-        eventTextColor: 'white',
-    });
-});
 </script>
 <?php 
 require_once 'includes/footer.php';
