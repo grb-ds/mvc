@@ -19,6 +19,10 @@ input:-internal-autofill-selected {
   background-color: transparent;
 }
 
+input, textarea, select {
+  background-color: transparent;
+}
+
 button {
   border: none;
   outline: none;
@@ -446,10 +450,6 @@ a span#register-new-account:hover {
   border-radius: 13px;
   overflow-y: auto;
   height: 80vh;
-}
-
-.challenge-add input, .challenge-add textarea, .challenge-add select {
-  background-color: transparent;
 }
 
 .challenge-add input:focus, .challenge-add textarea:focus, .challenge-add select:focus {

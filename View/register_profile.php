@@ -16,16 +16,17 @@
 
 <div class="signin-container">
     <div class="signin-form">
+        <h1>Register a new account:</h1>
         <form action="" method="POST">
-            <h3>Register a new account:</h3>
+           
             </select><br>
-            <input type="text" name="userName" placeholder="Your full name...">
+            <input type="text" name="userName" placeholder="Full Name">
             <br><br>
-            <input type="text" name="email" placeholder="Your email adress...">
+            <input type="text" name="email" placeholder="Email address">
             <br><br>
-            <input type="password" name="password" placeholder="Your password...">
+            <input type="password" name="password" placeholder="Password">
             <br><br>
-            <input type="password" name="repeatPassword" placeholder="Repeat your password...">
+            <input type="password" name="repeatPassword" placeholder="Re-enter password">
             <br><br>
             <select name="userRole" id="userRole">
                 <option value="1">Coach</option>
