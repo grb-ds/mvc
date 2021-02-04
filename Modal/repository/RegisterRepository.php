@@ -2,10 +2,6 @@
 
 function register($databaseManager)
 {
-    // echo "TEST B";
-    // echo "<pre>";
-    // var_dump($_GET);
-    // echo "</pre>";
     //TODO: Change GET var into a seperate var
     $_GET['error'] = null;
     $userName = $_POST["userName"];

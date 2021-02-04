@@ -48,7 +48,7 @@ $nextWatch = "";
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['login'])){
+    if (isset($_POST['login']) && !empty($_POST['email']) && !empty($_POST['password'])){
         $userController = new UserController($databaseManager);
        
         $userController->render($_GET, $_POST);
@@ -61,8 +61,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 if (isset($_GET["page"]) && $_GET["page"] == "coach_profile" && isset($_SESSION) && !empty($_SESSION["userEmail"]) && !empty($_SESSION["userPassword"])) {
     $userController = new UserController($databaseManager);
     require_once "View/coach_profile.php";
-
-
 }
 
 if (isset($_GET["page"]) && $_GET["page"] == "student_profile" && isset($_SESSION) && !empty($_SESSION["userEmail"]) && !empty($_SESSION["userPassword"])) {
