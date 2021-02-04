@@ -77,7 +77,7 @@ class UserRepository
         $statementResult = $sqlStatement->fetchALL();
 
         if ($statementResult) {
-            var_dump($statementResult);
+           // var_dump($statementResult);
             /* $this->mapper($statementResult);*/
              return $statementResult;
         } else {
