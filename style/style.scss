@@ -4,8 +4,10 @@ $turquoise: #3bc4c1;
 $dirty-pink: #d889a7;
 $tiffany: #c6dddd;
 $yellow: #fbe487;
+$carol: #e9b4a1;
 $grey: #c4c3c4;
 $dark-grey: #878c91;
+$baby-green: #7dc2aa;
 
 * {
   padding: 0;
@@ -22,18 +24,96 @@ a {
   
   
 }
+a:hover{
+  text-decoration: none;
+}
+i{
+  color: $tiffany;
+}
 input:-internal-autofill-selected {
-
   background-color: transparent;
 }
-
-button{
+button, input{
   border: none;
   outline: none;
 }
- a:hover{
+
+// sign in page //
+.signin-container {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.4)
+    ),
+    url(../style/pink.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.signin-form {
+  height: 80%;
+   width: 40%;
+  padding-bottom: 0;
+  color: $dark-grey;
+  right: 3%;
+  position: absolute;
+  top: 5%;
+  text-align: right;
+  h1 {
+    font-size: 3rem;
+    color: $baby-green;
+    text-shadow: 1px 1px $grey;
+  }
+  p {
+    font-size: 1.5rem;
+    color: $tiffany;
+  }
+  form {
+    padding: 2rem;
+  }
+  input {
+    padding: 1rem 1rem 0.3rem 1rem;
+    width: 70%;
+    background-color: transparent;
+    border-bottom: 2px solid $tiffany;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    color: $grey;
+  }
+  input:focus {
+    background-color: $tiffany;
+  }
+  select#userRole{
+    background: $baby-green;
+    padding: .5rem 1rem;
+    margin: 1rem 0;
+    font-family: "Poppins", sans-serif;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    border:none;
+  }
+  select#userRole:focus{
+    outline:none;
+  }
+}
+
+button#login {
+  font-family: "Poppins", sans-serif;
+  border-radius: 13px;
+  padding: 0.8rem 2rem;
+  text-transform: uppercase;
+    background-color: #f1cdd9;
+  color: white;
+}
+a span#register-new-account{
+  color: $baby-green;
+  font-size: 1.2rem ;
   text-decoration: none;
-  color: inherit;
+}
+a span#register-new-account:hover{
+  color: $dirty-pink;
+  text-decoration: none;
 }
 
 // nav bar css
@@ -44,34 +124,37 @@ button{
   padding: 1rem 3rem;
   font-size: 1.5rem;
   i {
-    color: $dark-grey;
+    color: $dirty-pink;
+    font-size: 1.2rem;
   }
-  a i:hover {
-    color: $tiffany;
+  a{
+    color: $dirty-pink;
+    font-size: 1rem;
+  }
+  a:hover, i:hover {
+    color: $grey;
   }
 }
-.login {
+nav.login {
   position: absolute;
   top: 0%;
   left: 0%;
   padding: 1rem 3rem;
   font-size: 1.5rem;
   i {
-    color: white;
+    color: $dirty-pink;
   }
   a{
-    color: white;
+    color: $dirty-pink;
     font-size: 1rem;
   }
   a:hover, i:hover {
-    color: $tiffany;
+    color: white;
   }
 }
-
-
 .vertical-nav {
   height: 90vh;
-  top: 4%;
+  margin-top: 8vh;
   left: 5vw;
   width: 5vw;
   display: flex;
@@ -96,45 +179,27 @@ button{
   
  
 }
-button#nav-class i{
+button#nav-class, button#nav-exercise, button#nav-watch {
   border: none;
   outline: none;
-  
-
-  background-color: #a0dfde;
-}
-button#nav-class i{
-  border: none;
-  outline: none;
-
-  background-color: #a0dfde;
-}
-
-button#nav-exercise i{
-  border: none;
-  outline: none;
- 
-  
-
-  background-color: #f8fafa;
-}
-i{
   background-color: transparent;
 }
 
+
+
 // student profile and coach profile css
 .container-profile {
-  padding: 3rem 2rem;
+  padding: 1.5rem 2rem;
   position: absolute;
   left: 13vw;
   margin: auto;
-  margin-top: 1.5rem;
+  margin-top: 8vh;
   width: 80vw;
   min-height: 90vh;
   background-color: #f5f5f5;
   background: linear-gradient(
     to right bottom,
-    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.3),
     rgba(255, 255, 255, 0.3)
   );
   border-radius: 2rem;
@@ -163,6 +228,7 @@ i{
   grid-row: 1/2;
   grid-column: 1/3;
   align-self: center;
+  padding:  1.5rem;
 }
 .welcome-name {
   font-weight: bold;
@@ -172,8 +238,7 @@ i{
 .exercise-list {
   grid-column: 1/2;
   grid-row: 2/4;
-  //background-color: $dirty-pink;
-  border: 3px solid $grey;
+  border: 3px solid $dirty-pink;
   overflow-y: auto;
   overflow-x: hidden;
 
@@ -190,7 +255,6 @@ i{
 }
 .exercise-list::-webkit-scrollbar {
   width: .4em;
-  //height: 10px;
 }
 .exercise-list::-webkit-scrollbar-track {
   box-shadow: none;
@@ -200,14 +264,15 @@ i{
   height: 10px;
   border-radius: 13px;
 }
-
 .challenge-display{
   margin:  .3rem;
+  padding: .1rem .5rem;
   border: 2px solid $dirty-pink;
   border-radius: 13px;
-  
+  p{
+    margin-bottom: 0;
+  }
 }
-
 
 .watch {
   grid-row: 1/4;
@@ -215,70 +280,55 @@ i{
   background-color: $grey;
   border-radius: 15px;
   margin: 1rem;
-  padding: 0.5rem;
-  .fc-day-header {
-    font-size: 0.6rem;
+  padding: 1rem;
+  
+}
+.watch-display{
+  margin:  .8rem 0;
+  padding: .1rem .5rem;
+  border-bottom: 2px solid $dark-grey;
+  text-transform: capitalize;
+  overflow: auto;
+  p{
+    margin-bottom: 0;
+    color: white;
+    font-weight: lighter;
   }
 }
+
 .repo {
   grid-column: 2/3;
   grid-row: 3/4;
-  //border: 3px solid $tiffany;
   background-color: $tiffany;
+  padding: 1.5rem;
+  h4{
+    text-transform: capitalize;
+    font-style: italic;
+    margin-bottom: 0;
+  }
+  p{
+    margin-bottom: 0;
+  }
 }
 .student-list {
   grid-column: 2/3;
   grid-row: 2/3;
+  justify-self: end;
+  text-align: center;
+  border: 1px solid #64af66;
 }
-
-
-.circle {
-  background: $turquoise;
-  height: 40rem;
-  width: 40rem;
-  position: absolute;
-  top: -40%;
-  left: -10%;
-  border-radius: 50%;
-  z-index: -1;
-}
-
-// calendar css
-div#calendar {
-  max-height: 80vh;
-}
-.fc-center {
-  color: $dirty-pink;
-}
-.fc-month-button,
-.fc-agendaWeek-button,
-.fc-today-button,
-.fc-button {
-  text-transform: capitalize;
-  background-color: none;
-  border: none;
-}
-.fc-day-header {
-  background-color: $tiffany;
-}
-.watch-calendar {
-  padding: 1.5rem;
-}
-
-// class lidt modal
+//modal
 .modal-btn {
-  background-color: #4caf50;
+  background-color: #64af66;
   color: white;
-  padding: 1rem 1.5rem;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 50%;
-  .modal-btn:hover {
-    opacity: 0.8;
-  }
+  padding: 1rem;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 13px;
 }
-
+ button.modal-btn:focus{
+   outline: none;
+ }
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -287,28 +337,52 @@ div#calendar {
   top: 25vh;
   width: 40rem; /* Full width */
   height: 20rem; /* Full height */
-  //overflow: auto; /* Enable scroll if needed */
-  background-color: #cdcdcc;
-  border: 15px solid $turquoise;
+  background-color: white;
+  border: 15px solid #64af66;
   border-radius: 12px;
-  animation: animatezoom 0.2s ease-in-out;
+  animation: animatezoom 0.3s ease-in-out;
+  padding: 2rem;
+  table{
+    margin: 2rem 0;
+  }
+  td {
+    border: 1px solid #64af66;
+    padding: .5rem 1rem;
+    text-transform: capitalize;
+    margin: 2rem;
+  }
 }
-
+#exercise-modal.modal{
+  border: 15px solid $dirty-pink;
+  overflow:auto;
+}
+#watch-modal.modal{
+  background-color: $grey;
+  border: 15px solid $dark-grey;
+  overflow:auto;
+  p{
+    color: white;
+  }
+}
 .close {
   position: absolute;
   right: 25px;
   top: 25px;
-  color: white;
+  color:  #64af66;
   font-size: 40px;
   font-weight: bold;
 }
-
+#close-exercise.close{
+  color:  $dirty-pink;
+}
+#close-watch.close{
+  color:  white;
+}
 .close:hover,
 .close:focus {
   color: $dark-grey;
   cursor: pointer;
 }
-
 @keyframes animatezoom {
   from {
     opacity: 0;
@@ -317,121 +391,6 @@ div#calendar {
     opacity: 1;
   }
 }
-
-// sign in page //
-.signin-container {
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.2),
-      rgba(255, 255, 255, 0.4)
-    ),
-    url(../style/wall.jfif);
-  background-size: cover;
-  height: 100vh;
-}
-
-.signin-form {
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 13px;
-  width: 70%;
-  height: 80vh;
-  color: $dark-grey;
-  position: absolute;
-  top: 10%;
-  left: 15%;
-  padding: 3rem;
-  h1 {
-    font-size: 3rem;
-    color: $turquoise;
-    text-shadow: 1px 1px $grey;
-  }
-  p {
-    font-size: 1.5rem;
-  }
-  form {
-    padding: 2rem;
-  }
-  input,
-  button {
-    border: none;
-    outline: none;
-  }
-  input {
-    padding: 1rem 1rem 0.3rem 1rem;
-    width: 70%;
-    background-color: transparent;
-    border-bottom: 2px solid $turquoise;
-    font-family: "Poppins", sans-serif;
-    font-size: 1rem;
-    color: $grey;
-  }
-  input:focus {
-    background-color: $tiffany;
-  }
-  select#userRole{
-    background: $tiffany;
-    padding: .5rem 1rem;
-    border: 1px solid $turquoise;
-    font-family: "Poppins", sans-serif;
-    color: $turquoise;
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-  select#userRole:focus{
-    outline:none;
-  }
-  
-  #login {
-    font-family: "Poppins", sans-serif;
-    border-radius: 13px;
-    padding: 0.8rem 2rem;
-      position: absolute;
-    bottom: 5%;
-    right: 5%;
-    text-transform: uppercase;
-    background-color: $yellow;
-    p{
-      color: $dark-grey;
-      margin-bottom: 0;
-    }
-  }
-  #register {
-    position: absolute;
-    top: 2%;
-    right: 2%;
-    text-transform: capitalize;
-    background-color: transparent;
-
-    padding: .5rem;
-    p{
-      font-size: 1rem;
-    }
-  
-  }
- 
- 
-}
-button#register-db{
-  font-family: "Poppins", sans-serif;
-  border-radius: 13px;
-  padding: 0.8rem 2rem;
-    position: absolute;
-  bottom: 5%;
-  right: 5%;
-  text-transform: uppercase;
-  background-color: $yellow;
-  color: $dark-grey;
-  font-size: 1rem;
-}
-a span#register-new-account{
-  color: $turquoise;
-  font-size: 1.2rem ;
-  text-decoration: none;
-}
-a span#register-new-account:hover{
-  color: $dirty-pink;
-  text-decoration: none;
-}
-
 
 // create challenge page css 
 .challenge-add{
@@ -474,4 +433,27 @@ a span#register-new-account:hover{
   background-color: $yellow;
   border-color: $yellow;
   padding: 0.5rem 2rem;
+}
+
+
+// footer css
+.circle {
+  background: $turquoise;
+  height: 40rem;
+  width: 40rem;
+  position: absolute;
+  top: -40%;
+  left: -10%;
+  border-radius: 50%;
+  z-index: -1;
+}
+.circle2{
+  top: 1%;
+  left: 20%;
+  background: $tiffany;
+  height: 30rem;
+  width: 30rem;
+  position: absolute;
+  border-radius: 50%;
+  z-index: -2;
 }

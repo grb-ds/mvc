@@ -20,9 +20,15 @@
             <br><br><br><br>
             <input type="password" name="password" placeholder="Password">
             <br>
-            <button type="submit" name="login" value="login" id="login"><p>Log in</p></button>
+            
             <br><br>
-            Do not have an account yet? <a href="index.php?page=register"><span id="register-new-account">REGISTER NEW ACCOUNT</span></a>
+            Do not have an account yet? <br> 
+            <a href="index.php?page=register">
+                <span id="register-new-account">REGISTER NEW ACCOUNT</span>
+            </a>
+            <br> <br><br>
+
+            <button type="submit" name="login" value="login" id="login">Log in</button>
         </form>
     </div>
 </div>

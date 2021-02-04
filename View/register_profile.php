@@ -18,10 +18,9 @@
 
 <div class="signin-container">
     <div class="signin-form">
-        <h1>Register A New Account</h1>
+        <h1>Register<br>A New Account</h1>
         <form action="" method="POST">
            
-            
             <input type="text" name="userName" placeholder="Full Name">
             <br><br>
             <input type="text" name="email" placeholder="Email address">
@@ -36,8 +35,8 @@
             </select>
             <br><br>
             <!-- <hr> -->
-            <button type="submit" name="register" value="register" id="register-db">Register Now!</button>
-            <br><br>
+            <button type="submit" name="register" value="register" id="login">Register Now!</button>
+            <br>
             <?php if(!empty($error)) : ?>
                 <h3 style="color: red; font-size: 16px;"><?= errorMessage($error) ?></h3>
             <?php endif; ?>

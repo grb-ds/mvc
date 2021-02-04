@@ -13,22 +13,23 @@ require_once 'includes/nav_student.php';
         </div>
 
         <div class="exercise-list">
-            <h3>Exercises</h3>
+            <h3>Exercises</h3>            
             <?php foreach($_SESSION['challenges'] as $challenge) : ?>
-            <div id="challenge">
-                <p><b>Name:</b> <?= $challenge["name"];?></p>
-                <p><b>Date:</b> <?= $challenge["date_open"];?> - <?= $challenge["date_due"];?></p>
-                <a href="<?= $challenge["url"];?>"><?= $challenge["url"];?></a>
-            </div><?php endforeach ?>
+            <div class="challenge-display">
+                <p><b>Name:</b> <?= $challenge["name"];?><br>
+                    <b>Date:</b> <?= $challenge["date_open"];?> - <?= $challenge["date_due"];?></br>
+                    <a href="<?= $challenge["url"];?>"><?= $challenge["url"];?></a>
+                </p>
+            </div>
+            <?php endforeach ?>
         </div>
 
         <div class="watch">
                 <h3>Watch Schedule</h3>
                 <?php foreach($_SESSION["watchSchedule"] as $watch):?>
-                    <div>
-                        <p><?= $watch["name"];?> <br>
-                        <?= $watch["date"]; ?> <br>
-                        <?= $watch["first_name"];?>
+                    <div class="watch-display">
+                        <p><b>Topic: </b><br><?= $watch["name"];?> <br>
+                        <?= $watch["date"]; ?> by <?= $watch["first_name"];?>
                         </p>
                     </div>
                     <?php endforeach ?>
@@ -36,7 +37,7 @@ require_once 'includes/nav_student.php';
 
         <div class="repo">
             <h3>Your Next Watch</h3>
-            <p><?= $_SESSION['reminder']['date'];?></p>
+            <h4><?= $_SESSION['reminder']['date'];?></h4>
             <a href="mailto:<?= $_SESSION['reminder']['email']; ?>">Want an email reminder to yourself?</a>
         </div>
 
@@ -47,63 +48,55 @@ require_once 'includes/nav_student.php';
 
             <div id="class-modal" class="modal">
                 <span onclick="document.getElementById('class-modal').style.display='none'" class="close"
-                    title="Close Modal">&times;</span>
+                    title="Close Modal">&times;</span>            
                 <table>
-                    <tr> <?php foreach($_SESSION['classmates'] as $classmate) : ?>
-                        <td><?= $classmate["first_name"] ;?> </td>
-                        <?php endforeach ?>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>Verou</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <?php foreach($_SESSION["classmates"] as $classmate) : ?>
+                            <td><?= ($classmate["first_name"]);?> </td>
+                            <?php endforeach ?></td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
 
-        <div id="class-modal-exercise" class="modal">
-            <span onclick="document.getElementById('class-modal-excise').style.display='none'" class="close"
-                title="Close Modal">&times;</span>
+         <!-- modal for exercise -->
+         <div id="exercise-modal" class="modal">
+            <span onclick="document.getElementById('exercise-modal').style.display='none'" class="close" id="close-exercise" title="Close Modal">&times;</span>
             
-            <?php foreach($_SESSION['challenges'] as $challenge) : ?>
-            <div id="challenge">
+            <?php foreach($_SESSION["challenges"] as $challenge) : ?>
+            <div class="challenge-display">
                 <p><b>Name:</b> <?= $challenge["name"];?></p>
                 <p><b>Date:</b> <?= $challenge["date_open"];?> - <?= $challenge["date_due"];?></p>
                 <a href="<?= $challenge["url"];?>"><?= $challenge["url"];?></a>
-            </div><?php endforeach ?>
+            </div>
+            <?php endforeach ?>
         </div>
+
+        <!-- modal for watchschedule -->
+        <div id="watch-modal" class="modal">
+            <span onclick="document.getElementById('watch-modal').style.display='none'" class="close" id="close-watch" title="Close Modal">&times;</span>
+            
+            <h3>Watch Schedule</h3>
+            <?php foreach($_SESSION["watchSchedule"] as $watch):?>
+            <div class="watch-display">
+                <p><b>Topic: </b><?= $watch["name"];?> <br>
+                <?= $watch["date"]; ?> by <?= $watch["first_name"];?>
+                </p>
+            </div>
+            <?php endforeach ?>
+        </div>
+
     </div>
 </div>
 
-<script>
-let modalClass = document.getElementById('class-modal');
-let modalExercise = document.getElementById('class-modal-exercise');
 
-window.onclick = function(event) {
-    if (event.target == modalClass) {
-        modalClass.style.display = "none";
-    } 
-}
-window.onclick = function(event) {
-    if (event.target == modalExercise) {
-        modalExercise.style.display = "none";
-    }
-}
-
-window.addEventListener('DOMContentLoaded', () => {
-    var calendar = $('#calendar').fullCalendar({
-
-        //fixedWeekCount: false,
-        editable: false,
-        // height: 400 ,
-        contentHeight: 350,
-        selectable:true,
-        //selectHelper:true,
-
-        //cannot use PHP tag inside javascript codes, can only use a file return the values
-        events: 'test.php',
-        displayEventTime: false,
-        eventColor: '#d889a7',
-        eventTextColor: 'white',
-    });
-});
-</script>
 
 <?php 
 require_once 'includes/footer.php';
