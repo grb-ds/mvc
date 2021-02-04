@@ -27,7 +27,7 @@ require_once 'includes/nav_student.php';
 
         <div class="watch">
                 <h3>Watch Schedule</h3>
-                <?php foreach($this->watchSchedule as $watch):?>
+                <?php foreach($_SESSION["watchSchedule"] as $watch):?>
                     <div>
                         <p><?= $watch["name"];?> <br>
                         <?= $watch["date"]; ?> <br>

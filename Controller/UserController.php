@@ -57,7 +57,7 @@ class UserController {
             $_SESSION["challenges"] = $this->getChallenges();
            
             $this->watchSchedule = $this->getWatchSchedule();
-            
+            $_SESSION["watchSchedule"] = $this->watchSchedule;
         }
 
         //you should not echo anything inside your controller - only assign vars here
