@@ -92,5 +92,6 @@ if (isset($_GET["page"]) && $_GET['page'] === "home" ) {
 }
 
 if(empty($_GET)){
+    require_once 'View/includes/header.php';
     require_once 'View/public_homepage.php';
 }

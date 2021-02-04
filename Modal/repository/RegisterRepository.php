@@ -2,10 +2,10 @@
 
 function register($databaseManager)
 {
-    echo "TEST B";
-    echo "<pre>";
-    var_dump($_GET);
-    echo "</pre>";
+    // echo "TEST B";
+    // echo "<pre>";
+    // var_dump($_GET);
+    // echo "</pre>";
     //TODO: Change GET var into a seperate var
     $_GET['error'] = null;
     $userName = $_POST["userName"];
@@ -137,15 +137,15 @@ function createUser($databaseManager, $userName, $email, $password, $userRole)
     $sqlStatement->bindParam(':password', $hashedpwd, PDO::PARAM_STR, 255);
     $sqlStatement->bindParam(':role_id', $userRole, PDO::PARAM_INT);
 
-    echo "<pre>";
-    var_dump($sqlStatement);
-    echo "</pre>";
+    // echo "<pre>";
+    // var_dump($sqlStatement);
+    // echo "</pre>";
 
     $test = $sqlStatement->execute();
 
-    echo "<pre>";
-    var_dump($test);
-    echo "</pre>";
+    // echo "<pre>";
+    // var_dump($test);
+    // echo "</pre>";
 
     require "index.php?page=login";
     $sqlStatement = null;
