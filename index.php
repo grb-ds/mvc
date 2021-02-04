@@ -55,13 +55,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         
     }
+
+    
+}
+
+if (isset($_GET["page"]) && $_GET["page"] == "coach_profile" && isset($_SESSION) && !empty($_SESSION["userEmail"]) && !empty($_SESSION["userPassword"])) {
+    $userController = new UserController($databaseManager);
+    require_once "View/coach_profile.php";
+
+
 }
 
 
-
-
-
-if ($_GET['page'] == 'register'){
+if (isset($_GET["page"]) && $_GET['page'] == 'register'){
     require_once 'Controller/RegisterController.php';
     require_once 'Modal/repository/RegisterRepository.php';
     echo "TEST";
@@ -74,11 +80,5 @@ if (isset($_GET["page"]) && $_GET["page"] === "createChallenge" ) {
     // $challengeController->renderCreateView($_GET, $_POST);
     $challengeController->render($_GET, $_POST);
 }
-//if(isset($_SESSION["key"]))
 
-
-
-// if ( if the submit is true)
-//TODO: if the login = true -> check for table name
-//TODO: if table = student {$profile = "student_profile"} else if table is coach {$profile = "coach_profile"} else {$profile = "public_homepage"}
 require_once 'View/public_homepage.php';

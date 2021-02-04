@@ -6,6 +6,7 @@ require_once 'handles/coacherHandle.php';
 
 
 
+
 ?>
 
 
@@ -19,7 +20,7 @@ require_once 'handles/coacherHandle.php';
         </div>
         <div class="exercise-list">
             <h3>Exercises</h3>
-            <?php foreach($this->challenges as $challenge){?>
+            <?php foreach($_SESSION["challenges"] as $challenge){?>
             <div id="challenge"><p><b>Name:</b> <?php echo $challenge["name"];?></p>
                 <p><b>Date:</b> <?php echo $challenge["date_open"];?> - <?php echo $challenge["date_due"];?></p>
                 <a href="<?php echo $challenge["url"];?>"><?php echo $challenge["url"];?></a>
@@ -41,10 +42,10 @@ require_once 'handles/coacherHandle.php';
         </div>
         <div class="repo">
             <h3>Upcoming Watch</h3>
-            <p><?php echo $this->nextWatch["date"];
+            <p><?php echo $_SESSION["nextWatch"]["date"];
 
-                ?> by <?php echo $this->nextWatch["first_name"];?> </p>
-            <H4> <?php echo $this->nextWatch["name"]?></H4>
+                ?> by <?php echo $_SESSION["nextWatch"]["first_name"];?> </p>
+            <H4> <?php echo $_SESSION["nextWatch"]["name"]?></H4>
 
         </div>
 
@@ -60,7 +61,7 @@ require_once 'handles/coacherHandle.php';
                     <thead>Vervou</thead>
                     <tr>
                         <?php 
-                foreach($this->class1 as $classmate){?>
+                foreach($_SESSION["class1"] as $classmate){?>
 
                         <td><?php echo($classmate["first_name"]);?> </td>
                         <?php }?></td>
@@ -72,7 +73,7 @@ require_once 'handles/coacherHandle.php';
                     <thead>KooKu</thead>
                     <tr>
                         <?php 
-                foreach($this->class2 as $classmate2){?>
+                foreach($_SESSION["class2"] as $classmate2){?>
 
                         <td><?php echo($classmate2["first_name"]);?> </td>
                         <?php }?></td>
@@ -85,7 +86,7 @@ require_once 'handles/coacherHandle.php';
             <span onclick="document.getElementById('class-modal-excise').style.display='none'" class="close"
                 title="Close Modal">&times;</span>
             
-            <?php foreach($this->challenges as $challenge){?>
+            <?php foreach($_SESSION["challenges"] as $challenge){?>
             <div id="challenge">
                 <p><b>Name:</b> <?php echo $challenge["name"];?></p>
                 <p><b>Date:</b> <?php echo $challenge["date_open"];?> - <?php echo $challenge["date_due"];?></p>
@@ -116,7 +117,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     var calendar = $('#calendar').fullCalendar({
 
-               //fixedWeekCount: false,
+        //fixedWeekCount: false,
         editable: false,
         // height: 400 ,
         contentHeight: 350,
@@ -125,26 +126,13 @@ window.addEventListener('DOMContentLoaded', () => {
        
         //cannot use PHP tag inside javascript codes, can only use a file return the values
         events: 'test.php',
-                displayEventTime: false,
+        displayEventTime: false,
         eventColor: '#d889a7',
         eventTextColor: 'white',
     });
 });
 
-// $(document).ready(function(){
-//         var calendar = $('#calendar').fullCalendar({
-//             editable:true,
-//             header:{
-//                 left:'prev,next today',
-//                 center:'title',
-//                 right:'month,agendaWeek,agendaDay'
-//             },
-//             events:"<?php// $this->getWatchSchedule(); ?>",
-//             selectable:true,
-//             selectHelper:true,
-            
-//         });
-//     });
+
              
     </script>
 </script>

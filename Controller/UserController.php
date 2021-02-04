@@ -53,6 +53,7 @@ class UserController {
 
             
             $this->challenges = $this->getChallenges();
+            $_SESSION["challenges"] = $this->challenges;
 
 
          
@@ -80,14 +81,17 @@ class UserController {
                 case 1:
 
                     // Below function for the coach, needed to be loaded on the login page
-                    $this->nextWatch = $this->upComingWatch();
+                    $this->upComingWatch();
                     $this->class1 = $this->getClassmates(1);
+                    $_SESSION["class1"] = $this->class1;
+
                     $this->class2 = $this->getClassmates(2);
+                   $_SESSION["class2"] = $this->class2;
+
 
                     require "View/coach_profile.php";
                     require 'View/includes/nav_coach.php';
-                   // require 'test.php';
-
+                  
                   //  header("location: ./View/coach_profile.php");
 
                     break;
@@ -97,8 +101,12 @@ class UserController {
                     $id = $_SESSION["logginUserId"];
 
                     $this->reminder=$this->watchReminder($id);
+                    $_SESSION["reminder"] = $this->reminder;
                     $classNumber=$this->getClassNumber($id);
-                    $this->classmates = $this->getClassmates($classNumber);
+                    //$_SESSION["classNumber"] = $this->classNumber;
+                    $this->classmates = $this->getClassmates($classNumber);  
+                    $_SESSION["classmates"] = $this->classmates;
+
 
                    require "View/student_profile.php";
                     require 'View/includes/nav_student.php';
@@ -134,8 +142,12 @@ class UserController {
 
         $databaseUser = $this->databaseManager->database->prepare($sql);
         $databaseUser->execute();
-        $result = $databaseUser->fetch();
-        return $result;
+        $this->nextWatch = $databaseUser->fetch();
+        //return $this->nextWatch;
+        
+        $_SESSION["nextWatch"] =$this->nextWatch;
+
+      
     }
 
     public function watchReminder($id)
