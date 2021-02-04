@@ -1,6 +1,7 @@
 <?php
 declare(strict_types = 1);
 
+
 /*require_once './Modal/business/Coacher.php';
 require_once './Modal/business/Student.php';*/
 /*require_once '../Modal/repository/UserRepository.php';*/
@@ -78,19 +79,21 @@ class UserController {
              switch ($user->getRoleId()) {
                 case 1:
 
+                    // Below function for the coach, needed to be loaded on the login page
                     $this->nextWatch = $this->upComingWatch();
                     $this->class1 = $this->getClassmates(1);
                     $this->class2 = $this->getClassmates(2);
 
                     require "View/coach_profile.php";
                     require 'View/includes/nav_coach.php';
-                    require 'test.php';
+                   // require 'test.php';
 
                   //  header("location: ./View/coach_profile.php");
 
                     break;
                 case 2:
-
+                    
+                    // Below function for the student, needed to be loaded on the login page
                     $id = $_SESSION["logginUserId"];
 
                     $this->reminder=$this->watchReminder($id);
@@ -171,14 +174,12 @@ class UserController {
 
     public function getChallenges(){
         
-
         $sql ="SELECT * FROM challenge";
 
         $databaseUser = $this->databaseManager->database->prepare($sql);
         $databaseUser->execute();
         $result = $databaseUser->fetchALL();
         return $result;
-       
        
     }
 

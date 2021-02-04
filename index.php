@@ -61,15 +61,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-if (isset($_GET['page']) && $_GET['page'] == 'register'){
+if ($_GET['page'] == 'register'){
     require_once 'Controller/RegisterController.php';
     require_once 'Modal/repository/RegisterRepository.php';
     echo "TEST";
 
     $controller = new RegisterController($databaseManager);
     $controller->render($_GET, $_POST);
-}
-
+} 
 if (isset($_GET["page"]) && $_GET["page"] === "createChallenge" ) {
     $challengeController = new ChallengeController($databaseManager);
     // $challengeController->renderCreateView($_GET, $_POST);
