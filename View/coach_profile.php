@@ -3,6 +3,7 @@ require 'includes/header_watch.php';
 require 'includes/nav_coach.php';
 require_once 'handles/userHandle.php';
 require_once 'handles/coacherHandle.php';
+
 ?>
 
 <div class="container-profile">
@@ -40,8 +41,8 @@ require_once 'handles/coacherHandle.php';
 
         <div class="repo">
             <h3>Upcoming Watch</h3>
-            <p><?= $_SESSION["nextWatch"]["date"];?> by <?= $_SESSION["nextWatch"]["first_name"];?> </p>
-            <h4><?= $_SESSION["nextWatch"]["name"]?></h4>
+            <p><?= $_SESSION["watchSchedule"][0]["date"];?> by <?= $_SESSION["watchSchedule"][0]["first_name"];?> </p>
+            <h4><?= $_SESSION["watchSchedule"][0]["name"]?></h4>
         </div>
 
         <div class="student-list">

@@ -62,7 +62,7 @@ class UserController
                 case 1:
 
                     // Below function for the coach, needed to be loaded on the login page
-                    $this->upComingWatch();
+                    //$this->upComingWatch();
                     $this->class1 = $this->getClassmates(1);
                     $_SESSION["class1"] = $this->class1;
 
@@ -115,16 +115,17 @@ class UserController
         return $this->message;
     }
 
-    public function upComingWatch()
-    {
-        $sql = "SELECT watch.id, watch.name, watch.date, students.first_name FROM watch, students WHERE students.id=watch.student_id;";
+    // get the same values in getWatchSchedule function now - 
+    // public function upComingWatch()
+    // {
+    //     $sql = "SELECT watch.id, watch.name, watch.date, students.first_name FROM watch, students WHERE students.id=watch.student_id;";
 
-        $databaseUser = $this->databaseManager->database->prepare($sql);
-        $databaseUser->execute();
-        $this->nextWatch = $databaseUser->fetch();
-        //return $this->nextWatch;
-        $_SESSION["nextWatch"] =$this->nextWatch;
-    }
+    //     $databaseUser = $this->databaseManager->database->prepare($sql);
+    //     $databaseUser->execute();
+    //     $this->nextWatch = $databaseUser->fetch();
+    //     //return $this->nextWatch;
+    //     $_SESSION["nextWatch"] =$this->nextWatch;
+    // }
 
     public function watchReminder($id)
     {
@@ -172,7 +173,9 @@ class UserController
 
     public function getWatchSchedule()
     {
-        $sql = "SELECT watch.id, watch.name, watch.date, students.first_name FROM watch, students WHERE students.id=watch.student_id;";
+        $sql = "SELECT watch.id, watch.name, watch.date, students.first_name 
+                FROM watch, students WHERE students.id=watch.student_id 
+                ORDER BY watch.date";
     
         $databaseUser = $this->databaseManager->database->prepare($sql);
         $databaseUser->execute();
