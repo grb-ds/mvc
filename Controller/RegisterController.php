@@ -16,7 +16,6 @@ class RegisterController
 
     public function render(array $get, array $post)
     {
-        var_dump($_SESSION);
         
         $error = null;
         if (isset($_POST)) {
