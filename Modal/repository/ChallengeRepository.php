@@ -14,39 +14,36 @@ class ChallengeRepository
 
     public function create($name, $description, $dateOpen, $dateDue, $url, $type, $classId)
     {
-        $query = 'INSERT challenge (name, description, date_open, date_due, url, type, class_id )  VALUES (:s-name, :s-description, :t-date_open, :t-date_due, :s-url, :s-type, :i-class_id )';
+        $date = new DateTime();
+        $dateFormat =  $date->format('Y-m-d H:i:s');
+
+        $query = "INSERT INTO challenge (name, description, date_open, date_due, url, type, class_id )  VALUES (:name1, :description1, :date_open1, :date_due1, :url1, :type1, :class_id1 )";
+
         $sqlStatement = $this->databaseManager->database->prepare($query);
 
-        $sqlStatement->bindParam(':s-name', $name, PDO::PARAM_STR,255);
-        $sqlStatement->bindParam(':s-description', $description, PDO::PARAM_STR,255);
-        $sqlStatement->bindParam(':t-date_open', NOW(), PDO::PARAM_TIMESTAMP);
-        $sqlStatement->bindParam(':t-date_due', NOW(), PDO::PARAM_STR);
-        $sqlStatement->bindParam(':s-url', $url, PDO::PARAM_STR);
-        $sqlStatement->bindParam(':s-type', $type, PDO::PARAM_STR,30);
-        $sqlStatement->bindParam(':i-class_id ', $classId, PDO::PARAM_INT);
+        $sqlStatement->bindParam(':name1', $name, PDO::PARAM_STR,255);
+        $sqlStatement->bindParam(':description1', $description, PDO::PARAM_STR,255);
+        $sqlStatement->bindParam(':date_open1', $dateOpen);
+        $sqlStatement->bindParam(':date_due1', $dateDue);
+        $sqlStatement->bindParam(':url1', $url, PDO::PARAM_STR,255);
+        $sqlStatement->bindParam(':type1', $type, PDO::PARAM_STR,255);
+        $sqlStatement->bindParam(':class_id1', $classId, PDO::PARAM_INT);
 
-         $sqlStatement->execute();
-        $this->databaseManager->database->commit();
+        $result =  $sqlStatement->execute();
 
-        $result = $sqlStatement->fetch(PDO::FETCH_ASSOC);
-
-        var_dump($result);
-
-        if ($result) {
-          //  $this->mapper($statementResult);
-            //return $this->challenge;
-           // return $result;
-        } else {
-            $result = false;
-           // return $result;
-        }
-
+        return $result;
     }
 
     // Get one
-   /* public function find($email, $password)
+   public function find()
     {
-        $query = 'SELECT * FROM user WHERE email = :email and password = :password';
+
+    }
+
+   /* // Get all
+    public function get()
+    {
+        $query = 'SELECT * FROM challenge WHERE email = :email and password = :password';
         $sqlStatement = $this->databaseManager->database->prepare($query);
 
         $sqlStatement->bindParam(':email', $email, PDO::PARAM_STR,255);
@@ -57,19 +54,14 @@ class ChallengeRepository
         var_dump($statementResult);
 
         if ($statementResult) {
-            $this->mapper($statementResult);
+           var_dump($statementResult);
+            //$this->mapper($statementResult);
             return $this->user;
         } else {
             $result = false;
             return $result;
         }
     }*/
-
-    // Get all
-    public function get()
-    {
-
-    }
 
     public function update()
     {

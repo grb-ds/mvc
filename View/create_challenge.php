@@ -28,7 +28,7 @@ require_once './config.php';
          <!--   <div class="container">-->
 
                 <!--<form name="add" method="post" action="./View/handles/coacherHandle.php">-->
-            <form name="add" method="post" action="index.php">
+            <form name="add" method="post" action="">
                     <div class="modal-header">
                         <h4 class="modal-title">Add Challenge</h4>
                     </div>
@@ -95,18 +95,15 @@ require_once './config.php';
                             <label>Url</label>
                             <input type="text" class="form-control" required name="url" value="">
                         </div>
-
                         <div class="form-group">
                             <label>Class</label>
                             <select id="classes" name="classes" class="form-control">
-                                <option value="2">VEROU</option>
+                                <option value="1">VEROU</option>
                             </select>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <input type="submit" class="btn btn-secondary" value="Add" name="addChallenge">
-                      <!--  <button type="submit" class="btn btn-success" name="edit" value="<?= $cardRepository->getCard()->getId() ?>">Edit</button>-->
-                        <!-- <input type="submit" class="btn btn-success" value="Edit" name="edit">-->
                     </div>
                 </form>
           <!--  </div>-->
