@@ -30,7 +30,7 @@
 
         <button type="submit" name="login" value="login" id="login"><p>Log in</p></button>
         <!-- <br><br> -->
-        <button name="registerNow" id="register"><a href="index.php?page=register"><p>Register new account!</p></a></button>
+        <a href="index.php?page=register"><p>Register new account!</p></a>
 
     </form>
 

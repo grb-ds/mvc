@@ -21,6 +21,6 @@
 
 <header>
     <nav class="logout">
-        <a href="#"><i class="fas fa-sign-out-alt"></i></a>
+        <a href="index.php?page=home"><i class="fas fa-sign-out-alt"></i></a>
     </nav>
 </header>

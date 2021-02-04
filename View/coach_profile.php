@@ -1,6 +1,6 @@
 <?php 
 require 'includes/header_watch.php';
-//require 'includes/nav_coach.php';
+require 'includes/nav_coach.php';
 require_once 'handles/userHandle.php';
 require_once 'handles/coacherHandle.php';
 
@@ -14,19 +14,19 @@ require_once 'handles/coacherHandle.php';
         <div class="welcome-msg">
             <h3>Welcome,
                 <span class="welcome-name"><?php echo $_SESSION["logginUserName"]; ?>!</span><br></h3>
-               <h5> How are you doing today?</h5>
+                <h5> How are you doing today?</h5>
             
         </div>
         <div class="exercise-list">
             <h3>Exercises</h3>
-            <?php foreach($userController->challenges as $challenge){?>
+            <?php foreach($userController->challenges as $challenge) : ?>
             <div id="challenge"><p><b>Name:</b> <?php echo $challenge["name"];?></p>
                 <p><b>Date:</b> <?php echo $challenge["date_open"];?> - <?php echo $challenge["date_due"];?></p>
                 <a href="<?php echo $challenge["url"];?>"><?php echo $challenge["url"];?></a>
-            </div><?php }?>
+            </div><?php endforeach ?>
 
-       
-           <!-- <button type="submit" name="createChallenge"><a href="View/create_challenge.php">Create New Challenge</a></button>-->
+
+            ²<!-- <button type="submit" name="createChallenge"><a href="View/create_challenge.php">Create New Challenge</a></button>-->
             <button type="submit" name="createChallenge"><a href="index.php?page=createChallenge">Create New Challenge</a></button>
             
         </div>
@@ -41,10 +41,10 @@ require_once 'handles/coacherHandle.php';
         </div>
         <div class="repo">
             <h3>Upcoming Watch</h3>
-            <p><?php echo $this->nextWatch["date"];
+            <p><?php echo $userController->nextWatch["date"];
 
-                ?> by <?php echo $this->nextWatch["first_name"];?> </p>
-            <H4> <?php echo $this->nextWatch["name"]?></H4>
+                ?> by <?php echo $userController->nextWatch["first_name"];?> </p>
+            <H4> <?php echo $userController->nextWatch["name"]?></H4>
 
         </div>
 
@@ -60,7 +60,7 @@ require_once 'handles/coacherHandle.php';
                     <thead>Vervou</thead>
                     <tr>
                         <?php 
-                foreach($this->class1 as $classmate){?>
+                foreach($userController->class1 as $classmate){?>
 
                         <td><?php echo($classmate["first_name"]);?> </td>
                         <?php }?></td>
@@ -72,7 +72,7 @@ require_once 'handles/coacherHandle.php';
                     <thead>KooKu</thead>
                     <tr>
                         <?php 
-                foreach($this->class2 as $classmate2){?>
+                foreach($userController->class2 as $classmate2){?>
 
                         <td><?php echo($classmate2["first_name"]);?> </td>
                         <?php }?></td>
@@ -85,7 +85,7 @@ require_once 'handles/coacherHandle.php';
             <span onclick="document.getElementById('class-modal-excise').style.display='none'" class="close"
                 title="Close Modal">&times;</span>
             
-            <?php foreach($this->challenges as $challenge){?>
+            <?php foreach($userController->challenges as $challenge){?>
             <div id="challenge">
                 <p><b>Name:</b> <?php echo $challenge["name"];?></p>
                 <p><b>Date:</b> <?php echo $challenge["date_open"];?> - <?php echo $challenge["date_due"];?></p>

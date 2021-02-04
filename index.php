@@ -53,15 +53,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
        
         $userController->render($_GET, $_POST);
 
-        
     }
 }
 
 if (isset($_GET["page"]) && $_GET["page"] == "coach_profile" && isset($_SESSION) && !empty($_SESSION["userEmail"]) && !empty($_SESSION["userPassword"])) {
+    $userController = new UserController($databaseManager);
     require_once "View/coach_profile.php";
+
+
 }
 
 if (isset($_GET["page"]) && $_GET["page"] == "student_profile" && isset($_SESSION) && !empty($_SESSION["userEmail"]) && !empty($_SESSION["userPassword"])) {
+    $userController = new UserController($databaseManager);
     require_once "View/student_profile.php";
 }
 
@@ -69,11 +72,11 @@ if (isset($_GET["page"]) && $_GET["page"] == "student_profile" && isset($_SESSIO
 if (isset($_GET["page"]) && $_GET['page'] == 'register'){
     require_once 'Controller/RegisterController.php';
     require_once 'Modal/repository/RegisterRepository.php';
-    echo "TEST";
 
     $controller = new RegisterController($databaseManager);
     $controller->render($_GET, $_POST);
 } 
+
 if (isset($_GET["page"]) && $_GET["page"] === "createChallenge" ) {
     $challengeController = new ChallengeController($databaseManager);
     // $challengeController->renderCreateView($_GET, $_POST);
@@ -81,6 +84,10 @@ if (isset($_GET["page"]) && $_GET["page"] === "createChallenge" ) {
 }
 //if(isset($_SESSION["key"]))
 
+
+if (isset($_GET["page"]) && $_GET['page'] === "home" ) {
+    require_once "Controller/SessionDestroyer.php";
+}
 
 
 // if ( if the submit is true)

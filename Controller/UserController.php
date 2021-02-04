@@ -36,6 +36,8 @@ class UserController {
         $this->userRepository = new UserRepository($databaseManager);
         $this->message = "";
         $this->databaseManager = $databaseManager;
+        // $challenges = $this->challenges;
+        
     }
 
     public function render(array $get, array $post)
@@ -54,8 +56,8 @@ class UserController {
 
            // $_SESSION['user'] = serialize((array) $user);
 
-           // $this->challenges = $this->getChallenges();
-            $this->challenges = $this->getChallengesByClassId(1);
+            $this->challenges = $this->getChallenges();
+            // $this->challenges = $this->getChallengesByClassId(1);
             
         }
 
