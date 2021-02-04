@@ -74,6 +74,7 @@ if (isset($_GET["page"]) && $_GET["page"] === "createChallenge" ) {
     // $challengeController->renderCreateView($_GET, $_POST);
     $challengeController->render($_GET, $_POST);
 }
+//if(isset($_SESSION["key"]))
 
 
 
