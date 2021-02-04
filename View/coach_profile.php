@@ -19,7 +19,7 @@ require_once 'handles/coacherHandle.php';
         </div>
         <div class="exercise-list">
             <h3>Exercises</h3>
-            <?php foreach($this->challenges as $challenge){?>
+            <?php foreach($userController->challenges as $challenge){?>
             <div id="challenge"><p><b>Name:</b> <?php echo $challenge["name"];?></p>
                 <p><b>Date:</b> <?php echo $challenge["date_open"];?> - <?php echo $challenge["date_due"];?></p>
                 <a href="<?php echo $challenge["url"];?>"><?php echo $challenge["url"];?></a>

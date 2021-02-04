@@ -40,15 +40,18 @@ class UserController {
 
     public function render(array $get, array $post)
     {
+        var_dump($_SESSION);
         //this is just example code, you can remove the line below
 
         $user = $this->login($post['email'], $post['password']);
 
 
         if ($user) {
+            $_SESSION["userEmail"] = $post['email'];
+            $_SESSION["userPassword"] = $post['password'];
             $_SESSION["logginUserId"] = $user->getId();
             $_SESSION["logginUserName"] = $user->getUsername();
-            $_SESSION["user_role"] = $user->getRoleId();
+
            // $_SESSION['user'] = serialize((array) $user);
 
             

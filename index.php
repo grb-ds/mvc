@@ -57,11 +57,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
+if (isset($_GET["page"]) && $_GET["page"] == "coach_profile" && isset($_SESSION) && !empty($_SESSION["userEmail"]) && !empty($_SESSION["userPassword"])) {
+    require_once "View/coach_profile.php";
+}
+
+if (isset($_GET["page"]) && $_GET["page"] == "student_profile" && isset($_SESSION) && !empty($_SESSION["userEmail"]) && !empty($_SESSION["userPassword"])) {
+    require_once "View/student_profile.php";
+}
 
 
-
-
-if ($_GET['page'] == 'register'){
+if (isset($_GET["page"]) && $_GET['page'] == 'register'){
     require_once 'Controller/RegisterController.php';
     require_once 'Modal/repository/RegisterRepository.php';
     echo "TEST";
