@@ -1,8 +1,6 @@
 <?php
-
 declare(strict_types = 1);
 require_once './Modal/repository/RegisterRepository.php';
-
 
 class RegisterController
 {
@@ -11,7 +9,6 @@ class RegisterController
     public function __construct(DatabaseManager $databaseManager)
     {
         $this->databaseManager = $databaseManager;
-
     }
 
     public function render(array $get, array $post)

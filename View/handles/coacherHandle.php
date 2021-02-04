@@ -1,9 +1,6 @@
 <?php
 declare(strict_types = 1);
 
-
-
-
 $months = [
     "January" => '1',
     "February" => '2',
@@ -29,5 +26,3 @@ $years = [
     2024,
     2025,
 ];
-
-

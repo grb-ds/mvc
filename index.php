@@ -26,36 +26,18 @@ require_once 'Modal/repository/RegisterRepository.php';
 
 }
 
-
-// // files for the user profiles
-// require_once 'Controller/WatchController.php';
-// require_once 'Modal/repository/CoacherRepository.php';
-
-
-// require_once 'Controller/LoginController.php';
-
-// require_once 'Modal/DatabaseManager.php';
-
 $email = $password = "";
 $email_err = $password_err = "";
-
 $databaseManager->connect();
-
-
-
 $result = null;
 $nextWatch = "";
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['login']) && !empty($_POST['email']) && !empty($_POST['password'])){
         $userController = new UserController($databaseManager);
-       
+
         $userController->render($_GET, $_POST);
-
     }
-
-    
 }
 
 if (isset($_GET["page"]) && $_GET["page"] == "coach_profile" && isset($_SESSION) && !empty($_SESSION["userEmail"]) && !empty($_SESSION["userPassword"])) {
@@ -68,7 +50,6 @@ if (isset($_GET["page"]) && $_GET["page"] == "student_profile" && isset($_SESSIO
     require_once "View/student_profile.php";
 }
 
-
 if (isset($_GET["page"]) && $_GET['page'] == 'register'){
     require_once 'Controller/RegisterController.php';
     require_once 'Modal/repository/RegisterRepository.php';
@@ -79,10 +60,9 @@ if (isset($_GET["page"]) && $_GET['page'] == 'register'){
 
 if (isset($_GET["page"]) && $_GET["page"] === "createChallenge" ) {
     $challengeController = new ChallengeController($databaseManager);
-    // $challengeController->renderCreateView($_GET, $_POST);
+
     $challengeController->render($_GET, $_POST);
 }
-//if(isset($_SESSION["key"]))
 
 
 if (isset($_GET["page"]) && $_GET['page'] === "home" ) {

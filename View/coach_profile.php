@@ -3,10 +3,7 @@ require 'includes/header_watch.php';
 require 'includes/nav_coach.php';
 require_once 'handles/userHandle.php';
 require_once 'handles/coacherHandle.php';
-
-
 ?>
-
 
 <div class="container-profile">
     <div class="grid-profile">
@@ -14,10 +11,11 @@ require_once 'handles/coacherHandle.php';
             <h3>Welcome,
                 <span class="welcome-name"><?= $_SESSION["logginUserName"]; ?>!</span><br></h3>
                 <h5> How are you doing today?</h5>
-            
         </div>
+
         <div class="exercise-list">
             <h3>Exercises</h3>
+
             <?php foreach($_SESSION['challenges'] as $challenge) : ?>
             <div id="challenge"><p><b>Name:</b> <?= $challenge["name"];?></p>
                 <p><b>Date:</b> <?= $challenge["date_open"];?> - <?= $challenge["date_due"];?></p>
@@ -25,10 +23,7 @@ require_once 'handles/coacherHandle.php';
             </div>
             <?php endforeach ?>
 
-
-            <!-- <button type="submit" name="createChallenge"><a href="View/create_challenge.php">Create New Challenge</a></button>-->
             <button type="submit" name="createChallenge"><a href="index.php?page=createChallenge">Create New Challenge</a></button>
-            
         </div>
 
         <div class="watch">
@@ -36,23 +31,20 @@ require_once 'handles/coacherHandle.php';
                 <h3>Watch Schedule</h3>
                 <div id="calendar"></div>
             </div>
-
         </div>
+
         <div class="repo">
             <h3>Upcoming Watch</h3>
             <p><?= $_SESSION["nextWatch"]["date"];?> by <?= $_SESSION["nextWatch"]["first_name"];?> </p>
-            <H4> <?= $_SESSION["nextWatch"]["name"]?></H4>
+            <H4><?= $_SESSION["nextWatch"]["name"]?></H4>
         </div>
 
         <div class="student-list">
             <h3>Students</h3>
             <p>Curious about the juniors?</p>
-            <button class="modal-btn" onclick="document.getElementById('class-modal').style.display='block'">More
-                Info</button>
+            <button class="modal-btn" onclick="document.getElementById('class-modal').style.display='block'">More Info</button>
             <div id="class-modal" class="modal">
-                <span onclick="document.getElementById('class-modal').style.display='none'" class="close"
-                    title="Close Modal">&times;</span>
-
+                <span onclick="document.getElementById('class-modal').style.display='none'" class="close" title="Close Modal">&times;</span>
                 <table>
                     <thead>Vervou</thead>
                     <tr>
@@ -74,8 +66,7 @@ require_once 'handles/coacherHandle.php';
         </div>
 
         <div id="class-modal-exercise" class="modal">
-            <span onclick="document.getElementById('class-modal-excise').style.display='none'" class="close"
-                title="Close Modal">&times;</span>
+            <span onclick="document.getElementById('class-modal-excise').style.display='none'" class="close" title="Close Modal">&times;</span>
             
             <?php foreach($_SESSION["challenges"] as $challenge) : ?>
             <div id="challenge">
@@ -84,6 +75,7 @@ require_once 'handles/coacherHandle.php';
                 <a href="<?= $challenge["url"];?>"><?= $challenge["url"];?></a>
             </div>
             <?php endforeach ?>
+            
         </div>
     </div>
 </div>

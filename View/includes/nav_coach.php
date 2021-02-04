@@ -1,6 +1,4 @@
 <body>
-
-
 <!-- This is for different user -->
 
 <div class="vertical-nav">
@@ -13,5 +11,4 @@
     </button>
     <a href="index.php?page=createChallenge"><i class="fas fa-folder-plus"></i></a>
     <a href="index.php?page=watchCalendar"><i class="fas fa-desktop"></i></a>
-   
 </div>

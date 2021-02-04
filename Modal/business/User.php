@@ -19,7 +19,7 @@ class User {
         foreach ($data as $key => $value) {
             $instance->{$key} = $value;
         }
-       return $instance;
+        return $instance;
     }
 
     /**
@@ -149,6 +149,4 @@ class User {
     {
         $this->lastLogin = $lastLogin;
     }
-
-
 }

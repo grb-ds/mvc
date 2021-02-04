@@ -33,6 +33,5 @@ class DatabaseManager
             
             echo "Connection Error - " . $exception->getMessage();
         }
-        
     }
 }

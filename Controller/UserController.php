@@ -1,20 +1,11 @@
 <?php
 declare(strict_types = 1);
-
-
-/*require_once './Modal/business/Coacher.php';
-require_once './Modal/business/Student.php';*/
-/*require_once '../Modal/repository/UserRepository.php';*/
-/*require_once '../Modal/business/User.php';
-require_once '../Modal/repository/CoacherRepository.php';*/
-
 require_once './Modal/repository/UserRepository.php';
 require_once './Modal/business/User.php';
 require_once './Modal/repository/CoacherRepository.php';
 
-
-class UserController {
-
+class UserController 
+{
     private $userRepository;
     public $loginError;
     private $message;
@@ -28,25 +19,16 @@ class UserController {
     public $classmates;
     public $challenges;
 
-    /**
-     * UserController constructor.
-     */
     public function __construct(DatabaseManager $databaseManager)
     {
         $this->userRepository = new UserRepository($databaseManager);
         $this->message = "";
         $this->databaseManager = $databaseManager;
-        
     }
 
     public function render(array $get, array $post)
     {
-
-        
-        //this is just example code, you can remove the line below
-
         $user = $this->login($post['email'], $post['password']);
-
 
         if ($user) {
             $_SESSION["userEmail"] = $user->getEmail();
@@ -55,14 +37,7 @@ class UserController {
             $_SESSION["logginUserName"] = $user->getUsername();
             $_SESSION["user_role"] = $user->getRoleId();
             $_SESSION["challenges"] = $this->getChallenges();
-            
-           // $_SESSION['user'] = serialize((array) $user);
-            // $this->challenges = $this->getChallengesByClassId(1);
-            
         }
-
-        //you should not echo anything inside your controller - only assign vars here
-        // then the view will actually display them.
 
         //load the view
         $this->renderByUserRole($user);
@@ -81,8 +56,7 @@ class UserController {
 
     public function renderByUserRole($user)
     {
-        if ($user)
-        {
+        if ($user) {
             switch ($user->getRoleId()) {
                 case 1:
 
@@ -140,8 +114,8 @@ class UserController {
         return $this->message;
     }
 
-    public function upComingWatch(){
-
+    public function upComingWatch()
+    {
         $sql = "SELECT watch.id, watch.name, watch.date, students.first_name FROM watch, students WHERE students.id=watch.student_id;";
 
         $databaseUser = $this->databaseManager->database->prepare($sql);
@@ -163,8 +137,8 @@ class UserController {
         return $result;
     }
 
-    public function getClassNumber($id){
-
+    public function getClassNumber($id)
+    {
         $sql ="SELECT class_id FROM students where user_id = $id";
 
         $databaseUser = $this->databaseManager->database->prepare($sql);
@@ -173,8 +147,8 @@ class UserController {
         return $result["class_id"];
     }
 
-    public function getClassmates($classNumber){
-
+    public function getClassmates($classNumber)
+    {
         $sql ="SELECT students.first_name, classes.name
                 FROM students, classes
                 WHERE students.class_id=classes.id AND classes.id=$classNumber";
@@ -185,8 +159,8 @@ class UserController {
         return $result;
     }
 
-    public function getChallenges(){
-        
+    public function getChallenges()
+    {
         $sql ="SELECT * FROM challenge";
 
         $databaseUser = $this->databaseManager->database->prepare($sql);
@@ -205,21 +179,12 @@ class UserController {
     
         foreach($result as $row)
         {
-            // echo "<pre>";
-            // var_dump($result);
-            // echo "</pre>";
             $myArray[] = array(
                 'id'   => $row["id"],
                 'title'   => $row["first_name"],
                 'start'   => $row["date"],
             );
-    
         }
-        echo json_encode($myArray);        
-        
-    
-        
-    
+        echo json_encode($myArray);
     }
-    
 }

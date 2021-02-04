@@ -12,10 +12,6 @@ class UserRepository
         $this->user = new User();
     }
 
-    public function create()
-    {
-    }
-
     // Get one
     public function find($email, $password)
     {
@@ -37,22 +33,6 @@ class UserRepository
         }
     }
 
-    // Get all
-    public function get()
-    {
-
-    }
-
-    public function update()
-    {
-
-    }
-
-    public function delete($id)
-    {
-
-    }
-
     public function mapper($array)
     {
         $this->user->setId($array["id"]);
@@ -65,7 +45,6 @@ class UserRepository
         $this->user->setLastLogin($array["last_login"]);
     }
 
-
     public function getChallengesByClassId($classId)
     {
         $query = 'SELECT t1.* FROM challenge t1 INNER JOIN classes t2 ON t1.class_id = t2.id and t2.id = :classId1';
@@ -77,16 +56,10 @@ class UserRepository
         $statementResult = $sqlStatement->fetchALL();
 
         if ($statementResult) {
-           // var_dump($statementResult);
-            /* $this->mapper($statementResult);*/
-             return $statementResult;
+            return $statementResult;
         } else {
-             $result = false;
-             return $result;
+            $result = false;
+            return $result;
         }
     }
-
-
- 
-
 }

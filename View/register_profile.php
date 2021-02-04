@@ -9,10 +9,7 @@
     <link rel="icon" type="image/png" href="style/b.png" />
     <link rel="stylesheet" href="style/style.css">
     <title>Becode2U</title>
-
-
 </head>
-
 
 <div class="signin-container">
     <div class="signin-form">
@@ -41,8 +38,5 @@
         </form>
     </div>
 </div>
-
-
 </body>
-
 </html>
