@@ -37,9 +37,9 @@ require_once 'includes/nav_student.php';
         </div>
 
         <div class="repo">
-            <h3>Your Next Watch</h3>
+            <h3>Your Next Watch <i class="fas fa-envelope-open-text"></i></h3>
             <h4><?= $_SESSION['reminder']['date'];?></h4>
-            <a href="mailto:<?= $_SESSION['reminder']['email']; ?>"><i class="fas fa-envelope-open-text"></i>Want an email reminder to yourself?</a>
+            <a href="mailto:<?= $_SESSION['reminder']['email']; ?>">Want an email reminder to yourself?</a>
         </div>
 
         <div class="student-list">

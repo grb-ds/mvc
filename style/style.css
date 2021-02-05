@@ -260,6 +260,13 @@ button#nav-watch {
           flex-direction: column;
 }
 
+.exercise-list:hover,
+.repo:hover,
+.student-list:hover, .watch:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
 .welcome-msg {
   background-color: #fbe487;
   -ms-grid-row: 1;
@@ -391,6 +398,14 @@ button#nav-watch {
 
 .repo p {
   margin-bottom: 0;
+}
+
+.repo i {
+  color: #878c91;
+}
+
+.repo a:hover {
+  color: #c4c3c4;
 }
 
 .student-list {
@@ -576,23 +591,23 @@ input.btn.btn-secondary:hover {
   background-color: transparent;
 }
 
-.modal-title-exercise {
+.exercise-add .modal-title-exercise {
   text-transform: uppercase;
   font-size: 3rem;
   color: #e9b4a1;
   text-shadow: 0.5px 0.5px #c4c3c4;
 }
 
-input.btn.btn-secondary.exercise {
+.exercise-add input.btn.btn-secondary.exercise {
   color: white;
   background-color: #e9b4a1;
   border-color: #e9b4a1;
   padding: 0.5rem 2rem;
 }
 
-input.btn.btn-secondary:hover {
-  background-color: #878c91;
-  color: #fbe487;
+.exercise-add input.btn.btn-secondary.exercise:hover {
+  background-color: white;
+  color: #e9b4a1;
 }
 
 .circle {

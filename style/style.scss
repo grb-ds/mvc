@@ -232,6 +232,13 @@ button#nav-watch {
   border-radius: 15px;
   display: flex;
   flex-direction: column;
+  
+}
+
+.exercise-list:hover,
+.repo:hover,
+.student-list:hover, .watch:hover{
+  transform: scale(1.05);
 }
 .welcome-msg {
   background-color: $yellow;
@@ -251,6 +258,7 @@ button#nav-watch {
   border: 3px solid $dirty-pink;
   overflow-y: auto;
   overflow-x: hidden;
+  
 
   button#coach-add-challenge-btn {
     background-color: $dirty-pink;
@@ -263,6 +271,7 @@ button#nav-watch {
     }
   }
 }
+
 .exercise-list::-webkit-scrollbar {
   width: 0.4em;
 }
@@ -332,7 +341,14 @@ button#nav-watch {
   p {
     margin-bottom: 0;
   }
+  i{
+    color: $dark-grey;
+  }
+  a:hover{
+    color:$grey;
+  }
 }
+
 .student-list {
   grid-column: 2/3;
   grid-row: 2/3;
@@ -491,7 +507,7 @@ input.btn.btn-secondary.exercise {
   padding: 0.5rem 2rem;
 }
 input.btn.btn-secondary.exercise:hover {
-  background-color: $white;
+  background-color: white;
   color: $carol;
 }
 }
