@@ -4,18 +4,10 @@ require_once 'includes/header_watch.php';
 require_once 'includes/nav_student.php';
 ?>
 
-    <div class="resize-container"></div>
-
     <div class="container-profile">
-        <div class="grid-profile">
-            <div class="welcome-msg">
-                <h3>Welcome,
-                    <span class="welcome-name"><?= $_SESSION["logginUserName"]; ?>!</span><br>
-                </h3>
-                <h5> <?php echo $this->message; ?></h5>
-            </div>
 
-            <div class="exercise-list challenge-add">
+    <div class="challenge-add">
+
                 <form name="add" method="post" action="">
                     <div class="modal-header">
                     <h4 class="modal-title">Add Repository</h4>
@@ -50,7 +42,7 @@ require_once 'includes/nav_student.php';
                 </form>
             </div>
         </div>
-    </div>
+  
 
 
 
