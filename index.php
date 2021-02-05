@@ -6,6 +6,7 @@ require_once 'setup.php';
 // files for log in
 require_once 'Controller/UserController.php';
 require_once 'Controller/ChallengeController.php';
+require_once 'Controller/RepositoryStoreController.php';
 
 
 require_once 'Modal/repository/UserRepository.php';
@@ -14,6 +15,7 @@ require_once 'Modal/repository/RegisterRepository.php';
 require_once 'Modal/business/User.php';
 require_once 'Modal/business/Coacher.php';
 require_once 'Modal/business/Challenge.php';
+require_once 'Modal/business/RepositoryStore.php';
 
 if(isset($_POST['registerNow'])) {
     //files for Registering
