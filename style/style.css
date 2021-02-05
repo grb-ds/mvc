@@ -104,6 +104,10 @@ select:focus {
   outline: none;
 }
 
+.signin-form.landing {
+  margin-top: 5rem;
+}
+
 button#login {
   font-family: "Poppins", sans-serif;
   border-radius: 13px;
@@ -549,6 +553,40 @@ input.btn.btn-secondary {
   color: #878c91;
   background-color: #fbe487;
   border-color: #fbe487;
+  padding: 0.5rem 2rem;
+}
+
+input.btn.btn-secondary:hover {
+  background-color: #878c91;
+  color: #fbe487;
+}
+
+.exercise-add {
+  background-color: white;
+  border: 5px solid #e9b4a1;
+  border-radius: 13px;
+  overflow-y: auto;
+  height: 80vh;
+  padding: 1rem 1.5rem;
+}
+
+.exercise-add input,
+.exercise-add textarea,
+.exercise-add select {
+  background-color: transparent;
+}
+
+.modal-title-exercise {
+  text-transform: uppercase;
+  font-size: 3rem;
+  color: #e9b4a1;
+  text-shadow: 0.5px 0.5px #c4c3c4;
+}
+
+input.btn.btn-secondary.exercise {
+  color: white;
+  background-color: #e9b4a1;
+  border-color: #e9b4a1;
   padding: 0.5rem 2rem;
 }
 

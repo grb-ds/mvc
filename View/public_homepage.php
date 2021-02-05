@@ -11,7 +11,7 @@
     <title>Becode2U</title>
 </head>
 <div class="signin-container">
-    <div class="signin-form">
+    <div class="signin-form landing">
         <h1>WELCOME BACK! </h1> 
         <p>Please log in to continue</p>
         <form action="" method="POST">

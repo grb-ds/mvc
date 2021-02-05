@@ -6,11 +6,11 @@ require_once 'includes/nav_student.php';
 
     <div class="container-profile">
 
-    <div class="challenge-add">
+        <div class="exercise-add">
 
                 <form name="add" method="post" action="">
                     <div class="modal-header">
-                    <h4 class="modal-title">Add Repository</h4>
+                    <h4 class="modal-title-exercise">Add Repository</h4>
                 </div>
                     <div class="modal-body">
                         <div class="form-group">
@@ -37,7 +37,7 @@ require_once 'includes/nav_student.php';
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <input type="submit" class="btn btn-secondary" value="Add" name="addRepository">
+                        <input type="submit" class="btn btn-secondary exercise" value="Add" name="addRepository">
                     </div>
                 </form>
             </div>

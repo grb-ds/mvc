@@ -14,7 +14,7 @@ require_once 'includes/nav_student.php';
 
         <div class="exercise-list">
             <h3>Exercises</h3>  
-            <button type="submit" name="createRepository" id="coach-add-challenge-btn"><a href="index.php?page=createRepository">Add your repository</a></button>          
+            <button type="submit" name="createRepository" id="coach-add-challenge-btn"><a href="index.php?page=createRepository">Add Your Repository</a></button>          
             <?php foreach($_SESSION['challenges'] as $challenge) : ?>
             <div class="challenge-display">
                 <p><b>Name:</b> <?= $challenge["name"];?><br>
@@ -39,7 +39,7 @@ require_once 'includes/nav_student.php';
         <div class="repo">
             <h3>Your Next Watch</h3>
             <h4><?= $_SESSION['reminder']['date'];?></h4>
-            <a href="mailto:<?= $_SESSION['reminder']['email']; ?>">Want an email reminder to yourself?</a>
+            <a href="mailto:<?= $_SESSION['reminder']['email']; ?>"><i class="fas fa-envelope-open-text"></i>Want an email reminder to yourself?</a>
         </div>
 
         <div class="student-list">

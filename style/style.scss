@@ -104,6 +104,10 @@ select:focus {
   }
 }
 
+.signin-form.landing{
+  margin-top: 5rem;
+}
+
 button#login {
   font-family: "Poppins", sans-serif;
   border-radius: 13px;
@@ -458,6 +462,38 @@ input.btn.btn-secondary {
 input.btn.btn-secondary:hover {
   background-color: $dark-grey;
   color: $yellow;
+}
+
+// add exercise page css
+.exercise-add{
+  background-color: white;
+  border: 5px solid $carol;
+  border-radius: 13px;
+  overflow-y: auto;
+  height: 80vh;
+  padding: 1rem 1.5rem;
+  input,
+  textarea,
+  select {
+    background-color: transparent;
+  }
+
+.modal-title-exercise {
+  text-transform: uppercase;
+  font-size: 3rem;
+  color: $carol;
+  text-shadow: 0.5px 0.5px $grey;
+}
+input.btn.btn-secondary.exercise {
+  color: white;
+  background-color: $carol;
+  border-color: $carol;
+  padding: 0.5rem 2rem;
+}
+input.btn.btn-secondary.exercise:hover {
+  background-color: $white;
+  color: $carol;
+}
 }
 
 // footer css
