@@ -14,7 +14,7 @@ require_once 'includes/nav_student.php';
 
         <div class="exercise-list">
             <h3>Exercises</h3>  
-            <button type="submit" name="createRepository" id="coach-add-challenge-btn"><a href="index.php?page=createRepository">Create New Repository</a></button>          
+            <button type="submit" name="createRepository" id="coach-add-challenge-btn"><a href="index.php?page=createRepository">Add your repository</a></button>          
             <?php foreach($_SESSION['challenges'] as $challenge) : ?>
             <div class="challenge-display">
                 <p><b>Name:</b> <?= $challenge["name"];?><br>
