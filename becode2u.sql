@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 02, 2021 at 01:22 PM
+-- Generation Time: Feb 05, 2021 at 09:00 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -62,12 +62,22 @@ CREATE TABLE `challenge` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `date_open` timestamp NOT NULL DEFAULT current_timestamp(),
-  `date_due` timestamp NOT NULL DEFAULT current_timestamp(),
+  `date_open` date NOT NULL,
+  `date_due` date DEFAULT NULL,
   `url` mediumtext NOT NULL,
   `type` varchar(30) NOT NULL,
   `class_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `challenge`
+--
+
+INSERT INTO `challenge` (`id`, `name`, `description`, `date_open`, `date_due`, `url`, `type`, `class_id`) VALUES
+(1, 'CRUD', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam, sint!\r\n', '2021-02-05', '2021-02-09', 'https://github.com/becodeorg/gnt-verou-1-26', 'Solo', 1),
+(2, 'MVC', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam, sint!\r\n', '2021-02-01', '2021-02-15', 'https://github.com/becodeorg/gnt-verou-1-26', 'Group', 1),
+(3, 'CSS Grid - autofit & minmax', 'abcbcbb', '2020-02-08', '2020-02-15', 'abc.com', 'Group', 1),
+(6, 'Challenge MVC2', 'Challenge MVC2', '2017-12-31', '2017-12-31', 'https://grb-ds.github.io/responsiveness/', 'solo', 1);
 
 -- --------------------------------------------------------
 
@@ -105,6 +115,14 @@ CREATE TABLE `classes` (
   `coacher_id` int(11) NOT NULL,
   `status` varchar(25) NOT NULL DEFAULT 'active'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `classes`
+--
+
+INSERT INTO `classes` (`id`, `name`, `training_id`, `coacher_id`, `status`) VALUES
+(1, 'verou', 0, 1, 'active'),
+(2, 'Kooku', 0, 0, 'active');
 
 -- --------------------------------------------------------
 
@@ -179,7 +197,7 @@ CREATE TABLE `students` (
   `id` int(11) NOT NULL,
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
-  `dni` varchar(255) NOT NULL,
+  `class_id` int(11) NOT NULL,
   `gender` varchar(255) NOT NULL,
   `create_time` timestamp NOT NULL DEFAULT current_timestamp(),
   `user_id` int(11) NOT NULL,
@@ -190,14 +208,14 @@ CREATE TABLE `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id`, `first_name`, `last_name`, `dni`, `gender`, `create_time`, `user_id`, `watch_order`) VALUES
-(1, 'Wing', 'stuff', '1800', 'Female', '2021-02-02 09:32:24', 4, 1),
-(2, 'stud1', 'ln', '19009', 'male', '2021-02-02 09:46:19', 6, 2),
-(9, 'giomayra', 'ln', '8028028', 'mmmm', '2021-02-04 09:54:16', 3, 3),
-(11, 'basile', 'ln', '1898190', 'M', '2021-02-02 09:57:36', 5, 4),
-(14, 'stud2', 'lnnn', '7897897897', 'ma', '2021-02-02 10:02:41', 7, 6),
-(15, 'stud3', 'lnnn', '678798', 'femalle', '2021-02-02 10:05:27', 8, 7),
-(17, 'student4', 'lastname', '7678888789', 'FFF', '2021-02-02 10:06:36', 12, 8);
+INSERT INTO `students` (`id`, `first_name`, `last_name`, `class_id`, `gender`, `create_time`, `user_id`, `watch_order`) VALUES
+(1, 'Wing', 'stuff', 1, 'Female', '2021-02-02 09:32:24', 4, 1),
+(2, 'stud1', 'ln', 1, 'male', '2021-02-02 09:46:19', 6, 2),
+(9, 'giomayra', 'ln', 1, 'mmmm', '2021-02-04 09:54:16', 3, 3),
+(11, 'basile', 'ln', 1, 'M', '2021-02-02 09:57:36', 5, 4),
+(14, 'stud2', 'lnnn', 2, 'ma', '2021-02-02 10:02:41', 7, 6),
+(15, 'stud3', 'lnnn', 2, 'femalle', '2021-02-02 10:05:27', 8, 7),
+(17, 'student4', 'lastname', 1, 'FFF', '2021-02-02 10:06:36', 12, 8);
 
 -- --------------------------------------------------------
 
@@ -290,11 +308,12 @@ CREATE TABLE `watch` (
 --
 
 INSERT INTO `watch` (`id`, `name`, `round`, `url`, `student_id`, `date`) VALUES
-(1, 'react.js', 1, 'abx.com', 1, '2021-02-02'),
-(2, 'googleAPI', 1, 'hhh.com', 2, '2021-02-04'),
+(1, 'react.js', 1, 'abx.com', 1, '2021-02-09'),
+(2, 'googleAPI', 1, 'hhh.com', 2, '2021-02-15'),
 (4, '3D.js', 1, 'aaa.com', 11, '2021-02-08'),
-(5, 'postman', 1, 'aaa.com', 15, '2021-02-09'),
-(6, 'hackathon', 1, 'hhh.com', 9, '2021-02-10');
+(5, 'postman', 1, 'aaa.com', 15, '2021-02-12'),
+(6, 'hackathon', 1, 'hhh.com', 9, '2021-02-10'),
+(7, 'github repo ', 1, 'https://grid.malven.co/', 14, '2021-02-16');
 
 --
 -- Indexes for dumped tables
@@ -425,7 +444,7 @@ ALTER TABLE `campus`
 -- AUTO_INCREMENT for table `challenge`
 --
 ALTER TABLE `challenge`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `challenge_team`
@@ -437,7 +456,7 @@ ALTER TABLE `challenge_team`
 -- AUTO_INCREMENT for table `classes`
 --
 ALTER TABLE `classes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `repository`
@@ -479,7 +498,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `watch`
 --
 ALTER TABLE `watch`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
@@ -504,13 +523,6 @@ ALTER TABLE `challenge`
 ALTER TABLE `challenge_team`
   ADD CONSTRAINT `challenge_team_ibfk_1` FOREIGN KEY (`challenge_id`) REFERENCES `challenge` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `challenge_team_ibfk_2` FOREIGN KEY (`team_id`) REFERENCES `team` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `classes`
---
-ALTER TABLE `classes`
-  ADD CONSTRAINT `classes_ibfk_1` FOREIGN KEY (`training_id`) REFERENCES `training` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `classes_ibfk_2` FOREIGN KEY (`coacher_id`) REFERENCES `training` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `coachers`
