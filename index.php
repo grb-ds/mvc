@@ -61,6 +61,10 @@ if (isset($_GET["page"]) && $_GET["page"] === "createChallenge" ) {
     $challengeController->render($_GET, $_POST);
 }
 
+if (isset($_GET["page"]) && $_GET["page"] === "createRepository" ) {
+    $repositoryController = new RepositoryStoreController($databaseManager);
+    $repositoryController->render($_GET, $_POST);
+}
 
 if (isset($_GET["page"]) && $_GET['page'] === "home" ) {
     require_once "Controller/SessionDestroyer.php";
