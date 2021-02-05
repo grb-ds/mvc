@@ -260,13 +260,6 @@ button#nav-watch {
           flex-direction: column;
 }
 
-.exercise-list:hover,
-.repo:hover,
-.student-list:hover, .watch:hover {
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
-}
-
 .welcome-msg {
   background-color: #fbe487;
   -ms-grid-row: 1;

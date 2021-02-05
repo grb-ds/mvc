@@ -235,11 +235,11 @@ button#nav-watch {
   
 }
 
-.exercise-list:hover,
-.repo:hover,
-.student-list:hover, .watch:hover{
-  transform: scale(1.05);
-}
+// .exercise-list:hover,
+// .repo:hover,
+// .student-list:hover, .watch:hover{
+//   transform: scale(1.05);
+// }
 .welcome-msg {
   background-color: $yellow;
   grid-row: 1/2;
