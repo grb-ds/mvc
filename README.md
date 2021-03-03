@@ -11,14 +11,14 @@ Users can register and login to an account as a coach or student. Different func
 ---
 
 ## Functions
-<br>
+
 
 - The coaches have the access to creating new challenges for students, and the students can overcast the exercise list and submit the GitHub URL to the coaches. 
 - The schedule and email reminder of the Watch (in-class presentations) also built for both users.
 <br><br>
 ---
 ## Contributors
-<br>
+
 We worked closely as a team and contributed together in various sections. At the same time, we also assigned different functions to each other. 
 
 - [Basile](https://github.com/basileLeroy) built up the login and register system and worked closely with each other on the MVC structures.
@@ -30,11 +30,11 @@ We worked closely as a team and contributed together in various sections. At the
 
 ---
 ## Tools
-<br>
+
 
 - Php
 - MySql
-- [XAMPP](https://www.apachefriends.org/index.html)
-- [FontAwsome](https://fontawesome.com/)
+- XAMPP
+- FontAwsome
 - Visual Studio Code 
 - PhpStorm
