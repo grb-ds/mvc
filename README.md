@@ -1,5 +1,5 @@
 # MVC (Becode2U)
-Using the MVC structure with the connection of database to build our in-class exercise submission portal - **Becode2U**. 
+Using **MVC structure of Laravel** with the connection of **database** to build our in-class exercise submission portal - *Becode2U*. <br>
 Users can register and login to an account as a coach or student. Different functions and information will be shown according to the accounts. 
 
 ### Demo
